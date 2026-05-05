@@ -70,7 +70,7 @@ function Index() {
         </p>
         <div className="mt-3 grid grid-cols-3 gap-3">
           <Tile to="/detect/text" icon={<Type className="size-6" strokeWidth={2} />} label="Text" cost={2} />
-          <Tile to="/detect/photo" icon={<Image className="size-6" strokeWidth={2} />} label="Photo" cost={2} />
+          <Tile to="/detect/photo" icon={<Image className="size-6" strokeWidth={2} />} label="Photo" cost={4} />
           <Tile to="/detect/video" icon={<Video className="size-6" strokeWidth={2} />} label="Video" cost={10} />
         </div>
       </section>

@@ -12,7 +12,7 @@ const inputSchema = z.object({
 });
 
 const COST: Record<"photo" | "video" | "text" | "link", number> = {
-  photo: 2,
+  photo: 4,
   video: 10,
   text: 2,
   link: 2,
