@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowLeft, Share2 } from "lucide-react";
 import { toast } from "sonner";
 import { AppShell } from "@/components/AppShell";
-import { supabase } from "@/integrations/supabase/client";
-import type { Analysis } from "@/lib/profile";
+import { getAnalysis, type Analysis } from "@/lib/profile";
 
 export const Route = createFileRoute("/result/$id")({
   component: ResultPage,
@@ -17,7 +16,7 @@ function ResultPage() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    supabase.from("analyses").select("*").eq("id", id).maybeSingle().then(({ data }) => {
+    getAnalysis(id).then((data) => {
       if (!data) setNotFound(true);
       else setA(data);
     });

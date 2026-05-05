@@ -18,7 +18,7 @@ function AccountPage() {
 
   const load = async () => {
     if (!user) return;
-    setProfile(await fetchProfile(user.id));
+    setProfile(await fetchProfile(user.id, user.email));
   };
 
   useEffect(() => {

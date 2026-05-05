@@ -2,9 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Image, Type, Video, Link as LinkIcon } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
-import type { Analysis } from "@/lib/profile";
+import { listAnalyses, type Analysis } from "@/lib/profile";
 
 export const Route = createFileRoute("/history")({
   component: HistoryPage,
@@ -23,13 +22,7 @@ function HistoryPage() {
 
   useEffect(() => {
     if (!user) return;
-    supabase
-      .from("analyses")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
-      .limit(100)
-      .then(({ data }) => setItems(data ?? []));
+    listAnalyses(user.id).then(setItems);
   }, [user]);
 
   return (

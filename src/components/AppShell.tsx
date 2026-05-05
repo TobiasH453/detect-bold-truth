@@ -24,8 +24,7 @@ export function AppShell({ children, showNav = true }: Props) {
   const [profile, setProfile] = useState<Profile | null>(null);
   useEffect(() => {
     if (!user) return;
-    fetchProfile(user.id).then(setProfile);
-    // refresh profile on route change so credits stay current
+    fetchProfile(user.id, user.email).then(setProfile);
   }, [user, location.pathname]);
 
   if (loading || !user) {
