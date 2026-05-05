@@ -14,16 +14,104 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analyses: {
+        Row: {
+          content_type: Database["public"]["Enums"]["content_type"]
+          created_at: string
+          credits_spent: number
+          id: string
+          input_preview: string | null
+          score: number
+          suspected_model: string
+          user_id: string
+          verdict: Database["public"]["Enums"]["verdict_type"]
+        }
+        Insert: {
+          content_type: Database["public"]["Enums"]["content_type"]
+          created_at?: string
+          credits_spent: number
+          id?: string
+          input_preview?: string | null
+          score: number
+          suspected_model: string
+          user_id: string
+          verdict: Database["public"]["Enums"]["verdict_type"]
+        }
+        Update: {
+          content_type?: Database["public"]["Enums"]["content_type"]
+          created_at?: string
+          credits_spent?: number
+          id?: string
+          input_preview?: string | null
+          score?: number
+          suspected_model?: string
+          user_id?: string
+          verdict?: Database["public"]["Enums"]["verdict_type"]
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          credits_remaining: number
+          credits_reset_at: string
+          email: string
+          id: string
+          plan: Database["public"]["Enums"]["plan_type"]
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          credits_remaining?: number
+          credits_reset_at?: string
+          email: string
+          id: string
+          plan?: Database["public"]["Enums"]["plan_type"]
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          credits_remaining?: number
+          credits_reset_at?: string
+          email?: string
+          id?: string
+          plan?: Database["public"]["Enums"]["plan_type"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      maybe_reset_credits: {
+        Args: { _user_id: string }
+        Returns: {
+          created_at: string
+          credits_remaining: number
+          credits_reset_at: string
+          email: string
+          id: string
+          plan: Database["public"]["Enums"]["plan_type"]
+          updated_at: string
+        }
+        SetofOptions: {
+          from: "*"
+          to: "profiles"
+          isOneToOne: true
+          isSetofReturn: false
+        }
+      }
+      spend_credits: {
+        Args: { _amount: number; _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      content_type: "photo" | "video" | "text" | "link"
+      plan_type: "free" | "pro"
+      verdict_type: "likely_ai" | "likely_human" | "uncertain"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +238,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      content_type: ["photo", "video", "text", "link"],
+      plan_type: ["free", "pro"],
+      verdict_type: ["likely_ai", "likely_human", "uncertain"],
+    },
   },
 } as const
