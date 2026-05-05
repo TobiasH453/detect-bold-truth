@@ -69,9 +69,9 @@ function Index() {
           Or choose an option to upload
         </p>
         <div className="mt-3 grid grid-cols-3 gap-3">
+          <Tile to="/detect/text" icon={<Type className="size-6" strokeWidth={2} />} label="Text" cost={2} />
           <Tile to="/detect/photo" icon={<Image className="size-6" strokeWidth={2} />} label="Photo" cost={2} />
           <Tile to="/detect/video" icon={<Video className="size-6" strokeWidth={2} />} label="Video" cost={10} />
-          <Tile to="/detect/text" icon={<Type className="size-6" strokeWidth={2} />} label="Text" cost={2} />
         </div>
       </section>
 
@@ -111,7 +111,7 @@ function Tile({
       <div>
         <div className="font-display text-lg font-bold leading-none">{label}</div>
         <div className="text-[10px] uppercase tracking-widest font-semibold opacity-80 mt-1">
-          {cost} cr
+          {cost} credits
         </div>
       </div>
     </Link>
