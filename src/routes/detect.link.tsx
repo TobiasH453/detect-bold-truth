@@ -1,12 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { z } from "zod";
 import { DetectScreen } from "@/components/DetectScreen";
+
+const searchSchema = z.object({
+  url: z.string().optional(),
+});
 
 export const Route = createFileRoute("/detect/link")({
   component: LinkPage,
+  validateSearch: searchSchema,
 });
 
 function LinkPage() {
+  const { url: initialUrl } = Route.useSearch();
   return (
     <DetectScreen
       type="link"
@@ -14,15 +21,28 @@ function LinkPage() {
       description="Paste a URL to a photo, video, or text page."
     >
       {({ setPreview, setCanSubmit }) => (
-        <LinkInput onChange={(v, ok) => { setPreview(v); setCanSubmit(ok); }} />
+        <LinkInput
+          initial={initialUrl ?? ""}
+          onChange={(v, ok) => { setPreview(v); setCanSubmit(ok); }}
+        />
       )}
     </DetectScreen>
   );
 }
 
-function LinkInput({ onChange }: { onChange: (v: string, ok: boolean) => void }) {
-  const [val, setVal] = useState("");
+function LinkInput({ initial, onChange }: { initial: string; onChange: (v: string, ok: boolean) => void }) {
+  const [val, setVal] = useState(initial);
   const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    if (initial) {
+      const ok = /^https?:\/\/.+\..+/i.test(initial);
+      setValid(ok);
+      onChange(initial, ok);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
       <input
