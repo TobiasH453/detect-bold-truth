@@ -66,7 +66,7 @@ export function AuthShell({ children }: { children: React.ReactNode }) {
         </header>
         <div className="flex-1">{children}</div>
         <footer className="py-6 text-center text-[11px] uppercase tracking-widest text-muted-foreground">
-          See what's real.
+          Never wonder.
         </footer>
       </div>
     </div>

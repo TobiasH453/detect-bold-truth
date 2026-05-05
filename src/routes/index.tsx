@@ -27,7 +27,7 @@ function Index() {
     <AppShell>
       <section className="pt-4">
         <h1 className="font-display text-[34px] leading-[1.05] font-bold text-balance">
-          See what's real.
+          Never wonder.
         </h1>
         <p className="mt-2 text-sm text-muted-foreground max-w-[28ch]">
           Scan any content for AI fingerprints.

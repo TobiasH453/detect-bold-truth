@@ -31,9 +31,9 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
-      { title: "AIsore — See what's real" },
+      { title: "AIsore — Never wonder" },
       { name: "description", content: "Detect AI-generated photos, videos, and text in seconds." },
-      { property: "og:title", content: "AIsore — See what's real" },
+      { property: "og:title", content: "AIsore — Never wonder" },
       { property: "og:description", content: "Detect AI-generated photos, videos, and text in seconds." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
