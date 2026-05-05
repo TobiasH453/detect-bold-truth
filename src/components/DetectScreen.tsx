@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Loader2 } from "lucide-react";
-import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import { AppShell } from "./AppShell";
 import { Logo } from "./Logo";
-import { analyzeContent } from "@/lib/detect.functions";
-import { CREDIT_COST, type ContentType } from "@/lib/profile";
+import { useAuth } from "@/lib/auth-context";
+import { analyzeMock, CREDIT_COST, type ContentType } from "@/lib/profile";
 
 interface Props {
   type: ContentType;
@@ -22,7 +21,7 @@ interface Props {
 
 export function DetectScreen({ type, title, description, children }: Props) {
   const navigate = useNavigate();
-  const analyze = useServerFn(analyzeContent);
+  const { user } = useAuth();
   const cost = CREDIT_COST[type];
 
   const [preview, setPreview] = useState("");
@@ -31,8 +30,9 @@ export function DetectScreen({ type, title, description, children }: Props) {
   const [busy, setBusy] = useState(false);
 
   const submit = async () => {
+    if (!user) return;
     setBusy(true);
-    const res = await analyze({ data: { contentType: type, preview, text } });
+    const res = await analyzeMock({ userId: user.id, contentType: type, preview, text });
     setBusy(false);
     if (!res.ok) {
       toast.error(res.error);
