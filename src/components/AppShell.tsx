@@ -61,9 +61,12 @@ function Header({ profile }: { profile: Profile | null }) {
               <span className="text-[10px] uppercase tracking-widest font-semibold px-2 py-1 border border-foreground rounded-full">
                 {profile.plan}
               </span>
-              <span className="text-xs font-mono font-semibold bg-foreground text-background px-2.5 py-1 rounded-full">
-                {profile.credits_remaining} <span className="opacity-60">cr</span>
-              </span>
+              <Link
+                to="/account"
+                className="text-xs font-mono font-semibold bg-foreground text-background px-2.5 py-1 rounded-full hover:opacity-80 transition-opacity"
+              >
+                {profile.credits_remaining} <span className="opacity-60">credits</span>
+              </Link>
             </>
           )}
         </div>
