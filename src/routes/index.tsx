@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
-import { Image, Type, Video, Link as LinkIcon, ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Image, Type, Video, ArrowRight, Link2 } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
 import { useAuth } from "@/lib/auth-context";
 
@@ -15,6 +15,14 @@ function Index() {
     if (!loading && !user) navigate({ to: "/login" });
   }, [loading, user, navigate]);
 
+  const [url, setUrl] = useState("");
+  const valid = /^https?:\/\/.+\..+/i.test(url.trim());
+
+  const submitLink = () => {
+    if (!valid) return;
+    navigate({ to: "/detect/link", search: { url: url.trim() } as never });
+  };
+
   return (
     <AppShell>
       <section className="pt-4">
@@ -22,15 +30,49 @@ function Index() {
           See what's real.
         </h1>
         <p className="mt-2 text-sm text-muted-foreground max-w-[28ch]">
-          Pick a content type to scan it for AI fingerprints.
+          Scan any content for AI fingerprints.
         </p>
       </section>
 
-      <section className="mt-7 grid grid-cols-2 gap-3">
-        <Tile to="/detect/photo" icon={<Image className="size-6" strokeWidth={2} />} label="Photo" cost={2} accent />
-        <Tile to="/detect/video" icon={<Video className="size-6" strokeWidth={2} />} label="Video" cost={10} />
-        <Tile to="/detect/text" icon={<Type className="size-6" strokeWidth={2} />} label="Text" cost={2} />
-        <Tile to="/detect/link" icon={<LinkIcon className="size-6" strokeWidth={2} />} label="Link" cost={2} />
+      <section className="mt-6">
+        <label className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">
+          Paste a link
+        </label>
+        <div className="mt-2 rounded-2xl border-2 border-foreground bg-card shadow-pop-sm overflow-hidden flex items-stretch">
+          <div className="pl-4 flex items-center text-muted-foreground">
+            <Link2 className="size-5" />
+          </div>
+          <input
+            type="url"
+            inputMode="url"
+            value={url}
+            placeholder="https://…"
+            onChange={(e) => setUrl(e.target.value)}
+            onKeyDown={(e) => { if (e.key === "Enter") submitLink(); }}
+            className="flex-1 bg-transparent px-3 py-4 text-base focus:outline-none"
+          />
+          <button
+            onClick={submitLink}
+            disabled={!valid}
+            className="bg-primary text-primary-foreground px-4 font-semibold border-l-2 border-foreground disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1"
+          >
+            Scan <ArrowRight className="size-4" />
+          </button>
+        </div>
+        <p className="mt-2 text-xs text-muted-foreground">
+          Works for photos, videos, or text pages.
+        </p>
+      </section>
+
+      <section className="mt-8">
+        <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">
+          Or choose an option to upload
+        </p>
+        <div className="mt-3 grid grid-cols-3 gap-3">
+          <Tile to="/detect/photo" icon={<Image className="size-6" strokeWidth={2} />} label="Photo" cost={2} />
+          <Tile to="/detect/video" icon={<Video className="size-6" strokeWidth={2} />} label="Video" cost={10} />
+          <Tile to="/detect/text" icon={<Type className="size-6" strokeWidth={2} />} label="Text" cost={2} />
+        </div>
       </section>
 
       <section className="mt-8 rounded-2xl border border-border bg-surface p-5">
@@ -52,33 +94,24 @@ function Tile({
   icon,
   label,
   cost,
-  accent,
 }: {
   to: string;
   icon: React.ReactNode;
   label: string;
   cost: number;
-  accent?: boolean;
 }) {
   return (
     <Link
       to={to}
-      className={`group rounded-2xl border-2 border-foreground p-4 aspect-[1.05] flex flex-col justify-between transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-pop-sm ${
-        accent ? "bg-primary text-primary-foreground" : "bg-card"
-      }`}
+      className="group rounded-2xl border-2 border-foreground p-3 aspect-square flex flex-col justify-between transition-transform active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-pop-sm bg-primary text-primary-foreground"
     >
-      <div className="flex items-start justify-between">
-        <div className={`size-10 rounded-xl flex items-center justify-center ${
-          accent ? "bg-primary-foreground/15 text-primary-foreground" : "bg-foreground text-background"
-        }`}>
-          {icon}
-        </div>
-        <ArrowRight className="size-4 opacity-60 group-hover:opacity-100" />
+      <div className="size-10 rounded-xl flex items-center justify-center bg-primary-foreground/15 text-primary-foreground">
+        {icon}
       </div>
       <div>
-        <div className="font-display text-2xl font-bold">{label}</div>
-        <div className="text-[11px] uppercase tracking-widest font-semibold opacity-70 mt-0.5">
-          {cost} credits
+        <div className="font-display text-lg font-bold leading-none">{label}</div>
+        <div className="text-[10px] uppercase tracking-widest font-semibold opacity-80 mt-1">
+          {cost} cr
         </div>
       </div>
     </Link>
