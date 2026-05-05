@@ -9,38 +9,187 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ResultIdRouteImport } from './routes/result.$id'
+import { Route as DetectVideoRouteImport } from './routes/detect.video'
+import { Route as DetectTextRouteImport } from './routes/detect.text'
+import { Route as DetectPhotoRouteImport } from './routes/detect.photo'
+import { Route as DetectLinkRouteImport } from './routes/detect.link'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResultIdRoute = ResultIdRouteImport.update({
+  id: '/result/$id',
+  path: '/result/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetectVideoRoute = DetectVideoRouteImport.update({
+  id: '/detect/video',
+  path: '/detect/video',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetectTextRoute = DetectTextRouteImport.update({
+  id: '/detect/text',
+  path: '/detect/text',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetectPhotoRoute = DetectPhotoRouteImport.update({
+  id: '/detect/photo',
+  path: '/detect/photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DetectLinkRoute = DetectLinkRouteImport.update({
+  id: '/detect/link',
+  path: '/detect/link',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/history': typeof HistoryRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/detect/link': typeof DetectLinkRoute
+  '/detect/photo': typeof DetectPhotoRoute
+  '/detect/text': typeof DetectTextRoute
+  '/detect/video': typeof DetectVideoRoute
+  '/result/$id': typeof ResultIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/history': typeof HistoryRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/detect/link': typeof DetectLinkRoute
+  '/detect/photo': typeof DetectPhotoRoute
+  '/detect/text': typeof DetectTextRoute
+  '/detect/video': typeof DetectVideoRoute
+  '/result/$id': typeof ResultIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/history': typeof HistoryRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/detect/link': typeof DetectLinkRoute
+  '/detect/photo': typeof DetectPhotoRoute
+  '/detect/text': typeof DetectTextRoute
+  '/detect/video': typeof DetectVideoRoute
+  '/result/$id': typeof ResultIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/history'
+    | '/login'
+    | '/signup'
+    | '/detect/link'
+    | '/detect/photo'
+    | '/detect/text'
+    | '/detect/video'
+    | '/result/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/account'
+    | '/history'
+    | '/login'
+    | '/signup'
+    | '/detect/link'
+    | '/detect/photo'
+    | '/detect/text'
+    | '/detect/video'
+    | '/result/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/history'
+    | '/login'
+    | '/signup'
+    | '/detect/link'
+    | '/detect/photo'
+    | '/detect/text'
+    | '/detect/video'
+    | '/result/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  HistoryRoute: typeof HistoryRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  DetectLinkRoute: typeof DetectLinkRoute
+  DetectPhotoRoute: typeof DetectPhotoRoute
+  DetectTextRoute: typeof DetectTextRoute
+  DetectVideoRoute: typeof DetectVideoRoute
+  ResultIdRoute: typeof ResultIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +197,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/result/$id': {
+      id: '/result/$id'
+      path: '/result/$id'
+      fullPath: '/result/$id'
+      preLoaderRoute: typeof ResultIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detect/video': {
+      id: '/detect/video'
+      path: '/detect/video'
+      fullPath: '/detect/video'
+      preLoaderRoute: typeof DetectVideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detect/text': {
+      id: '/detect/text'
+      path: '/detect/text'
+      fullPath: '/detect/text'
+      preLoaderRoute: typeof DetectTextRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detect/photo': {
+      id: '/detect/photo'
+      path: '/detect/photo'
+      fullPath: '/detect/photo'
+      preLoaderRoute: typeof DetectPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/detect/link': {
+      id: '/detect/link'
+      path: '/detect/link'
+      fullPath: '/detect/link'
+      preLoaderRoute: typeof DetectLinkRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  HistoryRoute: HistoryRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  DetectLinkRoute: DetectLinkRoute,
+  DetectPhotoRoute: DetectPhotoRoute,
+  DetectTextRoute: DetectTextRoute,
+  DetectVideoRoute: DetectVideoRoute,
+  ResultIdRoute: ResultIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
