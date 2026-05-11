@@ -92,56 +92,11 @@ function PhoneMock() {
   return (
     <div className="relative mx-auto w-full max-w-[340px]">
       <div className="absolute -inset-6 bg-primary/15 rounded-[60px] blur-2xl -z-10" />
-      <div className="relative aspect-[9/19] rounded-[44px] border-[3px] border-foreground bg-background shadow-pop overflow-hidden">
-        <div className="absolute top-0 inset-x-0 h-7 flex justify-center">
-          <div className="mt-2 h-5 w-24 rounded-full bg-foreground" />
-        </div>
-        <div className="pt-12 px-5 pb-6 h-full flex flex-col">
-          <div className="flex items-center gap-2">
-            <Logo size={24} />
-            <Wordmark className="text-base" />
-          </div>
-          <h3 className="mt-6 font-display text-3xl font-bold leading-tight">Never wonder.</h3>
-          <p className="mt-1 text-xs text-muted-foreground">Scan any content for AI fingerprints.</p>
-
-          <div className="mt-5 rounded-2xl border-2 border-foreground bg-card shadow-pop-sm p-3 text-xs text-muted-foreground">
-            https://…
-          </div>
-
-          <div className="mt-4 grid grid-cols-3 gap-2">
-            {[
-              { icon: <Type className="size-4" />, label: "Text", c: 2 },
-              { icon: <ImageIcon className="size-4" />, label: "Photo", c: 4 },
-              { icon: <Video className="size-4" />, label: "Video", c: 10 },
-            ].map((t) => (
-              <div
-                key={t.label}
-                className="rounded-2xl border-2 border-foreground bg-primary text-primary-foreground p-2 aspect-square flex flex-col justify-between shadow-pop-sm"
-              >
-                <div className="size-7 rounded-lg bg-primary-foreground/15 flex items-center justify-center">
-                  {t.icon}
-                </div>
-                <div>
-                  <div className="font-display text-sm font-bold leading-none">{t.label}</div>
-                  <div className="text-[8px] uppercase tracking-widest font-semibold opacity-80 mt-0.5">
-                    {t.c} cr
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-auto rounded-xl border border-border bg-surface p-3">
-            <div className="text-[9px] uppercase tracking-widest font-semibold text-muted-foreground">
-              Last scan
-            </div>
-            <div className="mt-1 flex items-center justify-between">
-              <span className="font-display font-bold">Likely AI</span>
-              <span className="text-xs font-mono font-semibold text-primary">94%</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <img
+        src={appScreenshot}
+        alt="AIsore app screenshot"
+        className="relative w-full h-auto rounded-[44px] border-[3px] border-foreground shadow-pop"
+      />
     </div>
   );
 }
