@@ -63,7 +63,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden border-b-2 border-foreground">
       <div className="absolute inset-0 -z-10 opacity-[0.04] [background-image:radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:18px_18px]" />
-      <div className="max-w-6xl mx-auto px-6 pt-20 pb-24 grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto px-6 pt-8 pb-14 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-semibold border border-foreground rounded-full px-3 py-1">
             <span className="size-1.5 rounded-full bg-primary" /> AI Detection · iOS & Android
