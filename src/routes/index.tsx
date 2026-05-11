@@ -164,7 +164,7 @@ function HowItWorks() {
   const steps = [
     { n: "01", title: "Drop it in", body: "Paste a link, or upload a photo, video, or block of text." },
     { n: "02", title: "We analyze", body: "Our models see what you can't. Pixel patterns, prose tics, frame artifacts." },
-    { n: "03", title: "Get the verdict", body: "A confidence score, the likely AI model, and a plain-English explanation." },
+    { n: "03", title: "Get the verdict", body: "A confidence score, the likely AI model, and an easy way to share." },
   ];
   return (
     <section id="how" className="bg-surface border-b border-border">
