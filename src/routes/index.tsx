@@ -33,31 +33,6 @@ function Landing() {
   );
 }
 
-function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-30 bg-background/85 backdrop-blur border-b border-border">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
-          <Logo size={32} />
-          <Wordmark className="text-xl" />
-        </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="#how" className="hover:text-primary transition-colors">How it works</a>
-          <a href="#features" className="hover:text-primary transition-colors">Features</a>
-          <a href="#download" className="hover:text-primary transition-colors">Download</a>
-        </nav>
-        <a
-          href="#download"
-          className="hidden sm:inline-flex items-center gap-2 bg-foreground text-background px-4 py-2 rounded-full text-sm font-semibold hover:opacity-85 transition-opacity"
-        >
-          Get the app
-        </a>
-      </div>
-    </header>
-  );
-}
-
-function Hero() {
   return (
     <section className="relative overflow-hidden border-b-2 border-foreground">
       <div className="absolute inset-0 -z-10 opacity-[0.04] [background-image:radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:18px_18px]" />
