@@ -107,7 +107,7 @@ function StoreButton({ kind }: { kind: "ios" | "android" }) {
     <a
       href="#"
       onClick={(e) => e.preventDefault()}
-      className="group inline-flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 rounded-2xl border-2 border-foreground shadow-pop-sm hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none transition-all"
+      className="group inline-flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 rounded-2xl border-2 border-foreground hover:opacity-85 transition-opacity"
     >
       {isIos ? <Apple className="size-7" /> : <Play className="size-7 fill-current" />}
       <div className="text-left leading-tight">
