@@ -73,13 +73,12 @@ function Hero() {
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-md">
             Scan any photo, video, or text for AI fingerprints. Get an honest confidence score
-            and the likely model — right from your phone.
+            and the likely model in under 10 seconds.
           </p>
           <div id="download" className="mt-10 flex flex-wrap gap-3">
             <StoreButton kind="ios" />
             <StoreButton kind="android" />
           </div>
-          <p className="mt-4 text-xs text-muted-foreground">Free to start · No account required for one scan</p>
         </div>
 
         <PhoneMock />
