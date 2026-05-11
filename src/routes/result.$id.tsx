@@ -75,9 +75,8 @@ function ResultPage() {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-3">
+      <div className="mt-4">
         <Stat label="Type" value={a.content_type} />
-        <Stat label="Cost" value={`${a.credits_spent} cr`} />
       </div>
 
       <div className="mt-4 rounded-2xl border border-border bg-surface p-5">

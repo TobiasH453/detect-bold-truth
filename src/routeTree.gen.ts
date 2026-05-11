@@ -9,10 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SignupRouteImport } from './routes/signup'
-import { Route as LoginRouteImport } from './routes/login'
 import { Route as HistoryRouteImport } from './routes/history'
-import { Route as AccountRouteImport } from './routes/account'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResultIdRouteImport } from './routes/result.$id'
 import { Route as DetectVideoRouteImport } from './routes/detect.video'
@@ -20,24 +17,9 @@ import { Route as DetectTextRouteImport } from './routes/detect.text'
 import { Route as DetectPhotoRouteImport } from './routes/detect.photo'
 import { Route as DetectLinkRouteImport } from './routes/detect.link'
 
-const SignupRoute = SignupRouteImport.update({
-  id: '/signup',
-  path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AccountRoute = AccountRouteImport.update({
-  id: '/account',
-  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -73,10 +55,7 @@ const DetectLinkRoute = DetectLinkRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/account': typeof AccountRoute
   '/history': typeof HistoryRoute
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -85,10 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/account': typeof AccountRoute
   '/history': typeof HistoryRoute
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -98,10 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/account': typeof AccountRoute
   '/history': typeof HistoryRoute
-  '/login': typeof LoginRoute
-  '/signup': typeof SignupRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -112,10 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/account'
     | '/history'
-    | '/login'
-    | '/signup'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -124,10 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/account'
     | '/history'
-    | '/login'
-    | '/signup'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -136,10 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/account'
     | '/history'
-    | '/login'
-    | '/signup'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -149,10 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AccountRoute: typeof AccountRoute
   HistoryRoute: typeof HistoryRoute
-  LoginRoute: typeof LoginRoute
-  SignupRoute: typeof SignupRoute
   DetectLinkRoute: typeof DetectLinkRoute
   DetectPhotoRoute: typeof DetectPhotoRoute
   DetectTextRoute: typeof DetectTextRoute
@@ -162,32 +123,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/signup': {
-      id: '/signup'
-      path: '/signup'
-      fullPath: '/signup'
-      preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/history': {
       id: '/history'
       path: '/history'
       fullPath: '/history'
       preLoaderRoute: typeof HistoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/account': {
-      id: '/account'
-      path: '/account'
-      fullPath: '/account'
-      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -237,10 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AccountRoute: AccountRoute,
   HistoryRoute: HistoryRoute,
-  LoginRoute: LoginRoute,
-  SignupRoute: SignupRoute,
   DetectLinkRoute: DetectLinkRoute,
   DetectPhotoRoute: DetectPhotoRoute,
   DetectTextRoute: DetectTextRoute,
