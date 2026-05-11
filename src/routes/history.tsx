@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Image, Type, Video, Link as LinkIcon } from "lucide-react";
 import { AppShell } from "@/components/AppShell";
-import { useAuth } from "@/lib/auth-context";
 import { listAnalyses, type Analysis } from "@/lib/profile";
 
 export const Route = createFileRoute("/history")({
@@ -17,13 +16,11 @@ const ICONS = {
 } as const;
 
 function HistoryPage() {
-  const { user } = useAuth();
   const [items, setItems] = useState<Analysis[] | null>(null);
 
   useEffect(() => {
-    if (!user) return;
-    listAnalyses(user.id).then(setItems);
-  }, [user]);
+    listAnalyses().then(setItems);
+  }, []);
 
   return (
     <AppShell>

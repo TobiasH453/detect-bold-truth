@@ -4,8 +4,7 @@ import { ArrowLeft, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { AppShell } from "./AppShell";
 import { Logo } from "./Logo";
-import { useAuth } from "@/lib/auth-context";
-import { analyzeMock, CREDIT_COST, type ContentType } from "@/lib/profile";
+import { analyzeMock, type ContentType } from "@/lib/profile";
 
 interface Props {
   type: ContentType;
@@ -21,8 +20,6 @@ interface Props {
 
 export function DetectScreen({ type, title, description, children }: Props) {
   const navigate = useNavigate();
-  const { user } = useAuth();
-  const cost = CREDIT_COST[type];
 
   const [preview, setPreview] = useState("");
   const [text, setText] = useState("");
@@ -30,9 +27,8 @@ export function DetectScreen({ type, title, description, children }: Props) {
   const [busy, setBusy] = useState(false);
 
   const submit = async () => {
-    if (!user) return;
     setBusy(true);
-    const res = await analyzeMock({ userId: user.id, contentType: type, preview, text });
+    const res = await analyzeMock({ contentType: type, preview, text });
     setBusy(false);
     if (!res.ok) {
       toast.error(res.error);
@@ -76,8 +72,7 @@ export function DetectScreen({ type, title, description, children }: Props) {
             onClick={submit}
             className="w-full rounded-xl bg-primary text-primary-foreground font-semibold py-4 shadow-pop-sm border-2 border-foreground active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-transform disabled:opacity-40 disabled:active:translate-x-0 disabled:active:translate-y-0 flex items-center justify-center gap-2"
           >
-            <span>Analyze</span>
-            <span className="text-xs font-mono opacity-80">· {cost} cr</span>
+            Analyze
           </button>
         </div>
       </div>

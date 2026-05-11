@@ -1,63 +1,22 @@
 // ============================================================================
-// MOCK DATA LAYER — UI-only stubs. Replace with real backend calls.
-// ============================================================================
-// All functions return hardcoded sample data. Analyses are kept in-memory
-// (and localStorage) so the UI flows feel real for design review.
+// MOCK DATA LAYER — UI-only stubs. Anonymous, no accounts.
 // ============================================================================
 
 export type ContentType = "photo" | "video" | "text" | "link";
-export type Plan = "free" | "pro";
 export type Verdict = "likely_ai" | "likely_human" | "uncertain";
-
-export interface Profile {
-  id: string;
-  email: string;
-  plan: Plan;
-  credits_remaining: number;
-  credits_reset_at: string;
-}
 
 export interface Analysis {
   id: string;
-  user_id: string;
   content_type: ContentType;
   input_preview: string;
   score: number;
   verdict: Verdict;
   suspected_model: string;
-  credits_spent: number;
   created_at: string;
 }
 
-export const CREDIT_COST: Record<ContentType, number> = {
-  photo: 4,
-  video: 10,
-  text: 2,
-  link: 2,
-};
-
-// ---- in-memory + localStorage persistence (mock only) ----------------------
-
-const PROFILE_KEY = "aisore.mock-profile";
 const ANALYSES_KEY = "aisore.mock-analyses";
 
-const defaultProfile = (id: string, email: string): Profile => ({
-  id,
-  email,
-  plan: "free",
-  credits_remaining: 30,
-  credits_reset_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
-});
-
-function readProfile(): Profile | null {
-  try {
-    const raw = window.localStorage.getItem(PROFILE_KEY);
-    return raw ? (JSON.parse(raw) as Profile) : null;
-  } catch { return null; }
-}
-function writeProfile(p: Profile) {
-  try { window.localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); } catch { /* ignore */ }
-}
 function readAnalyses(): Analysis[] {
   try {
     const raw = window.localStorage.getItem(ANALYSES_KEY);
@@ -68,28 +27,8 @@ function writeAnalyses(list: Analysis[]) {
   try { window.localStorage.setItem(ANALYSES_KEY, JSON.stringify(list)); } catch { /* ignore */ }
 }
 
-// ---- public mock API -------------------------------------------------------
-
-export async function fetchProfile(userId: string, email = "you@example.com"): Promise<Profile> {
-  let p = readProfile();
-  if (!p || p.id !== userId) {
-    p = defaultProfile(userId, email);
-    writeProfile(p);
-  }
-  return p;
-}
-
-export async function setPlan(userId: string, plan: Plan): Promise<Profile> {
-  const credits = plan === "pro" ? 300 : 30;
-  const reset = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString();
-  const current = (await fetchProfile(userId));
-  const updated: Profile = { ...current, plan, credits_remaining: credits, credits_reset_at: reset };
-  writeProfile(updated);
-  return updated;
-}
-
-export async function listAnalyses(userId: string): Promise<Analysis[]> {
-  return readAnalyses().filter((a) => a.user_id === userId);
+export async function listAnalyses(): Promise<Analysis[]> {
+  return readAnalyses();
 }
 
 export async function getAnalysis(id: string): Promise<Analysis | null> {
@@ -113,7 +52,6 @@ function hashStr(s: string): number {
 }
 
 export interface AnalyzeInput {
-  userId: string;
   contentType: ContentType;
   preview?: string;
   text?: string;
@@ -130,13 +68,6 @@ export async function analyzeMock(input: AnalyzeInput): Promise<AnalyzeResult> {
     if (words > 1000) return { ok: false, error: "Text exceeds 1000 words" };
   }
 
-  const cost = CREDIT_COST[input.contentType];
-  const profile = await fetchProfile(input.userId);
-  if (profile.credits_remaining < cost) {
-    return { ok: false, error: "Not enough credits" };
-  }
-  writeProfile({ ...profile, credits_remaining: profile.credits_remaining - cost });
-
   await new Promise((r) => setTimeout(r, 1200));
 
   const seed = hashStr((input.text ?? "") + "|" + (input.preview ?? "") + "|" + input.contentType + "|" + Date.now());
@@ -150,13 +81,11 @@ export async function analyzeMock(input: AnalyzeInput): Promise<AnalyzeResult> {
 
   const analysis: Analysis = {
     id: `mock_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-    user_id: input.userId,
     content_type: input.contentType,
     input_preview: previewToStore,
     score,
     verdict,
     suspected_model,
-    credits_spent: cost,
     created_at: new Date().toISOString(),
   };
   const all = readAnalyses();
