@@ -33,6 +33,7 @@ function Landing() {
   );
 }
 
+function Hero() {
   return (
     <section className="relative overflow-hidden border-b-2 border-foreground">
       <div className="absolute inset-0 -z-10 opacity-[0.04] [background-image:radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:18px_18px]" />
