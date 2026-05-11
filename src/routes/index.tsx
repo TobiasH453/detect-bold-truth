@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Apple, Play, Image as ImageIcon, Type, Video, ShieldCheck, Zap, Eye } from "lucide-react";
+import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
+import appScreenshot from "@/assets/app-screenshot.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
