@@ -95,7 +95,7 @@ function PhoneMock() {
       <img
         src={appScreenshot}
         alt="AIsore app screenshot"
-        className="relative w-full h-auto rounded-[44px] border-[3px] border-foreground shadow-pop"
+        className="relative w-full h-auto rounded-[36px] shadow-pop"
       />
     </div>
   );
