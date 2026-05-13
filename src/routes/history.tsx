@@ -6,6 +6,17 @@ import { listAnalyses, type Analysis } from "@/lib/profile";
 
 export const Route = createFileRoute("/history")({
   component: HistoryPage,
+  head: () => ({
+    meta: [
+      { title: "Your analysis history — AIsore" },
+      { name: "description", content: "Review every photo, video, text, and link you've analyzed with AIsore, with verdicts and confidence scores." },
+      { property: "og:title", content: "Your analysis history — AIsore" },
+      { property: "og:description", content: "Review every photo, video, text, and link you've analyzed with AIsore." },
+      { property: "og:url", content: "https://aisoreapp.com/history" },
+      { name: "robots", content: "noindex" },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/history" }],
+  }),
 });
 
 const ICONS = {

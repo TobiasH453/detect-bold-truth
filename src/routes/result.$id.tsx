@@ -7,6 +7,15 @@ import { getAnalysis, type Analysis } from "@/lib/profile";
 
 export const Route = createFileRoute("/result/$id")({
   component: ResultPage,
+  head: () => ({
+    meta: [
+      { title: "Analysis result — AIsore" },
+      { name: "description", content: "Your AIsore analysis result, including the AI confidence score, verdict, and suspected generator model." },
+      { property: "og:title", content: "Analysis result — AIsore" },
+      { property: "og:description", content: "Your AIsore analysis result, including confidence score and suspected model." },
+      { name: "robots", content: "noindex" },
+    ],
+  }),
 });
 
 function ResultPage() {
@@ -61,6 +70,8 @@ function ResultPage() {
       >
         <ArrowLeft className="size-4" /> Back
       </button>
+
+      <h1 className="font-display text-2xl font-bold mt-1 mb-3">Analysis result</h1>
 
       <div className={`rounded-3xl border-2 border-foreground p-6 shadow-pop ${isAI ? "bg-primary text-primary-foreground" : "bg-foreground text-background"}`}>
         <div className="text-[10px] uppercase tracking-widest font-semibold opacity-80">

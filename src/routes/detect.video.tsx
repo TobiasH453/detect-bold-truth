@@ -6,6 +6,16 @@ import { DetectScreen } from "@/components/DetectScreen";
 
 export const Route = createFileRoute("/detect/video")({
   component: VideoPage,
+  head: () => ({
+    meta: [
+      { title: "Analyze a video for AI — AIsore" },
+      { name: "description", content: "Upload up to 30 seconds of video and AIsore will inspect it for AI-generated motion and frame artifacts." },
+      { property: "og:title", content: "Analyze a video for AI — AIsore" },
+      { property: "og:description", content: "Upload up to 30 seconds of video and AIsore will inspect it for AI-generated motion." },
+      { property: "og:url", content: "https://aisoreapp.com/detect/video" },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/detect/video" }],
+  }),
 });
 
 function VideoPage() {

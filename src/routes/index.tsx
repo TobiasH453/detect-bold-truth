@@ -14,12 +14,34 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Detect AI-generated photos, videos, and text in seconds. Download AIsore for iOS and Android.",
+          "Detect AI-generated photos, videos, and text in seconds. Get a confidence score and the likely model. Download AIsore for iOS and Android.",
       },
       { property: "og:title", content: "AIsore — Never wonder if it's AI" },
       {
         property: "og:description",
         content: "Scan any photo, video, or text for AI fingerprints. Get a confidence score in seconds.",
+      },
+      { property: "og:url", content: "https://aisoreapp.com/" },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "AIsore",
+          url: "https://aisoreapp.com/",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "AIsore",
+          url: "https://aisoreapp.com/",
+        }),
       },
     ],
   }),
