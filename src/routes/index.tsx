@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
+import { WaitlistDialog } from "@/components/WaitlistDialog";
 import appScreenshot from "@/assets/app-screenshot.png";
 
 export const Route = createFileRoute("/")({
