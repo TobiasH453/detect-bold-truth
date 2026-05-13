@@ -140,7 +140,6 @@ function StoreButton({ kind }: { kind: "ios" | "android" }) {
     </a>
   );
 }
-}
 
 function Trio() {
   const items = [
