@@ -94,19 +94,51 @@ function DownloadGroup({
           <StoreButton kind="ios" />
           <StoreButton kind="android" />
         </div>
-        {/* One big cartoon X over both buttons */}
+        {/* Hand-drawn cartoon X over both buttons */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          {/* Black outline strokes for cartoon pop */}
-          <line x1="2" y1="4" x2="98" y2="96" stroke="#0a0a0a" strokeWidth="14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-          <line x1="98" y1="4" x2="2" y2="96" stroke="#0a0a0a" strokeWidth="14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-          {/* Red fill strokes on top */}
-          <line x1="2" y1="4" x2="98" y2="96" stroke="#ef4444" strokeWidth="9" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-          <line x1="98" y1="4" x2="2" y2="96" stroke="#ef4444" strokeWidth="9" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          {/* Diagonal 1: top-left to bottom-right, wobbly */}
+          <path
+            d="M 1 7 Q 22 18, 28 32 T 52 54 Q 68 64, 78 78 T 99 95"
+            fill="none"
+            stroke="#0a0a0a"
+            strokeWidth="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            d="M 1 7 Q 22 18, 28 32 T 52 54 Q 68 64, 78 78 T 99 95"
+            fill="none"
+            stroke="#ef4444"
+            strokeWidth="9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+          {/* Diagonal 2: top-right to bottom-left, different wobble */}
+          <path
+            d="M 99 4 Q 74 22, 70 36 T 46 50 Q 30 60, 22 74 T 2 98"
+            fill="none"
+            stroke="#0a0a0a"
+            strokeWidth="15"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            d="M 99 4 Q 74 22, 70 36 T 46 50 Q 30 60, 22 74 T 2 98"
+            fill="none"
+            stroke="#ef4444"
+            strokeWidth="9"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
         </svg>
       </div>
       <button
