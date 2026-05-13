@@ -75,7 +75,7 @@ function PhotoPicker({
         </button>
       ) : (
         <div className="relative rounded-2xl overflow-hidden border-2 border-foreground shadow-pop-sm">
-          <img src={preview} alt={name} className="w-full aspect-[4/3] object-cover" />
+          <img src={preview} alt={`Photo: ${name}`} className="w-full aspect-[4/3] object-cover" />
           <button
             onClick={() => {
               setPreview(null);

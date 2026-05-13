@@ -1,0 +1,14 @@
+# AIsore
+
+> AIsore detects AI-generated photos, videos, text, and links in seconds, returning a confidence score and the likely model.
+
+AIsore is a mobile app (iOS and Android) plus a marketing site at aisoreapp.com. Users upload or paste content, and AIsore returns a verdict (likely AI, likely human, uncertain), a 0–100 confidence score, and the suspected generator model.
+
+## Pages
+
+- [Home](/): Product overview, how it works, and waitlist signup.
+- [Analyze a photo](/detect/photo): Upload an image to check if it was AI-generated.
+- [Analyze a video](/detect/video): Upload up to 30 seconds of video for AI motion analysis.
+- [Analyze text](/detect/text): Paste up to 1,000 words to estimate AI-likelihood.
+- [Analyze a link](/detect/link): Paste a URL to inspect the linked photo, video, or text.
+- [History](/history): Review past analyses.

@@ -10,7 +10,7 @@ export function Logo({ size = 40, className = "", pulse = false }: Props) {
   return (
     <img
       src={logo}
-      alt="AIsore"
+      alt="AIsore logo"
       width={size}
       height={size}
       className={`${pulse ? "pulse-eye" : ""} ${className}`}
