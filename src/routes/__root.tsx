@@ -30,6 +30,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "google-site-verification", content: "H5G6N44CK8AUbEhM9sH3hh8AiaH7DDoMpjiyP8SLYrk" },
       { title: "AIsore — Never wonder if it's AI" },
       { name: "description", content: "Detect AI-generated photos, videos, text, and links in seconds. Get an honest confidence score and the likely model — right from your phone." },
       { property: "og:site_name", content: "AIsore" },
