@@ -94,51 +94,29 @@ function DownloadGroup({
           <StoreButton kind="ios" />
           <StoreButton kind="android" />
         </div>
-        {/* Hand-drawn cartoon X over both buttons */}
+        {/* Marker-drawn X — gentle arcs, ragged edges, dry-streak highlight */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          {/* Diagonal 1: top-left to bottom-right, wobbly */}
-          <path
-            d="M 1 7 Q 22 18, 28 32 T 52 54 Q 68 64, 78 78 T 99 95"
-            fill="none"
-            stroke="#0a0a0a"
-            strokeWidth="15"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-          />
-          <path
-            d="M 1 7 Q 22 18, 28 32 T 52 54 Q 68 64, 78 78 T 99 95"
-            fill="none"
-            stroke="#ef4444"
-            strokeWidth="9"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-          />
-          {/* Diagonal 2: top-right to bottom-left, different wobble */}
-          <path
-            d="M 99 4 Q 74 22, 70 36 T 46 50 Q 30 60, 22 74 T 2 98"
-            fill="none"
-            stroke="#0a0a0a"
-            strokeWidth="15"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-          />
-          <path
-            d="M 99 4 Q 74 22, 70 36 T 46 50 Q 30 60, 22 74 T 2 98"
-            fill="none"
-            stroke="#ef4444"
-            strokeWidth="9"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-          />
+          <defs>
+            <filter id="marker-rough" x="-5%" y="-5%" width="110%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" />
+            </filter>
+          </defs>
+          <g filter="url(#marker-rough)">
+            {/* Diagonal 1: top-left → bottom-right, slight upward arc */}
+            <path d="M 6 10 Q 48 42, 94 92" stroke="#dc2626" strokeWidth="13" strokeLinecap="round" fill="none" opacity="0.28" vectorEffect="non-scaling-stroke" />
+            <path d="M 6 10 Q 48 42, 94 92" stroke="#dc2626" strokeWidth="8" strokeLinecap="round" fill="none" opacity="0.95" vectorEffect="non-scaling-stroke" />
+            <path d="M 10 14 Q 50 44, 90 88" stroke="#fef2f2" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.5" vectorEffect="non-scaling-stroke" />
+            {/* Diagonal 2: top-right → bottom-left, slight downward arc */}
+            <path d="M 94 8 Q 52 50, 6 94" stroke="#dc2626" strokeWidth="13" strokeLinecap="round" fill="none" opacity="0.28" vectorEffect="non-scaling-stroke" />
+            <path d="M 94 8 Q 52 50, 6 94" stroke="#dc2626" strokeWidth="8" strokeLinecap="round" fill="none" opacity="0.95" vectorEffect="non-scaling-stroke" />
+            <path d="M 90 12 Q 52 50, 10 90" stroke="#fef2f2" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.5" vectorEffect="non-scaling-stroke" />
+          </g>
         </svg>
       </div>
       <button
