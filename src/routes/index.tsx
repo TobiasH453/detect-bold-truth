@@ -88,7 +88,7 @@ function DownloadGroup({
   return (
     <div
       id="download"
-      className={`mt-10 flex flex-col gap-4 ${align === "center" ? "items-center" : "items-start"}`}
+      className={`mt-10 flex flex-col gap-4 items-center ${align === "center" ? "md:items-center" : "md:items-start"}`}
     >
       <div className="relative inline-block">
         <div className="flex flex-wrap gap-3 justify-center">
