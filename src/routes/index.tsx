@@ -4,6 +4,7 @@ import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
 import appScreenshot from "@/assets/app-screenshot.png";
+import markerX from "@/assets/marker-x.png";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -94,30 +95,16 @@ function DownloadGroup({
           <StoreButton kind="ios" />
           <StoreButton kind="android" />
         </div>
-        {/* Marker-drawn X — gentle arcs, ragged edges, dry-streak highlight */}
-        <svg
-          className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
+        {/* Hand-painted brushstroke X stretched over both buttons */}
+        <img
+          src={markerX}
+          alt=""
           aria-hidden="true"
-        >
-          <defs>
-            <filter id="marker-rough" x="-5%" y="-5%" width="110%" height="110%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" />
-            </filter>
-          </defs>
-          <g filter="url(#marker-rough)">
-            {/* Diagonal 1: top-left → bottom-right, slight upward arc */}
-            <path d="M 6 10 Q 48 42, 94 92" stroke="#dc2626" strokeWidth="13" strokeLinecap="round" fill="none" opacity="0.28" vectorEffect="non-scaling-stroke" />
-            <path d="M 6 10 Q 48 42, 94 92" stroke="#dc2626" strokeWidth="8" strokeLinecap="round" fill="none" opacity="0.95" vectorEffect="non-scaling-stroke" />
-            <path d="M 10 14 Q 50 44, 90 88" stroke="#fef2f2" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.5" vectorEffect="non-scaling-stroke" />
-            {/* Diagonal 2: top-right → bottom-left, slight downward arc */}
-            <path d="M 94 8 Q 52 50, 6 94" stroke="#dc2626" strokeWidth="13" strokeLinecap="round" fill="none" opacity="0.28" vectorEffect="non-scaling-stroke" />
-            <path d="M 94 8 Q 52 50, 6 94" stroke="#dc2626" strokeWidth="8" strokeLinecap="round" fill="none" opacity="0.95" vectorEffect="non-scaling-stroke" />
-            <path d="M 90 12 Q 52 50, 10 90" stroke="#fef2f2" strokeWidth="1.2" strokeLinecap="round" fill="none" opacity="0.5" vectorEffect="non-scaling-stroke" />
-          </g>
-        </svg>
+          className="absolute left-[-4%] top-[-15%] w-[108%] h-[130%] pointer-events-none select-none"
+          style={{ objectFit: "fill" }}
+          draggable={false}
+        />
+
       </div>
       <button
         onClick={onOpenWaitlist}
