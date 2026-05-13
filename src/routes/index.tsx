@@ -100,8 +100,8 @@ function DownloadGroup({
           src={markerX}
           alt=""
           aria-hidden="true"
-          className="absolute left-[-4%] top-[-15%] w-[108%] h-[130%] pointer-events-none select-none"
-          style={{ objectFit: "fill" }}
+          className="absolute left-[-15%] top-[-35%] w-[130%] h-[170%] pointer-events-none select-none"
+          style={{ objectFit: "fill", opacity: 1 }}
           draggable={false}
         />
 
