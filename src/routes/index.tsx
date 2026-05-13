@@ -89,9 +89,25 @@ function DownloadGroup({
       id="download"
       className={`mt-10 flex flex-col gap-4 ${align === "center" ? "items-center" : "items-start"}`}
     >
-      <div className="flex flex-wrap gap-3 justify-center">
-        <StoreButton kind="ios" />
-        <StoreButton kind="android" />
+      <div className="relative inline-block">
+        <div className="flex flex-wrap gap-3 justify-center">
+          <StoreButton kind="ios" />
+          <StoreButton kind="android" />
+        </div>
+        {/* One big cartoon X over both buttons */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          {/* Black outline strokes for cartoon pop */}
+          <line x1="2" y1="4" x2="98" y2="96" stroke="#0a0a0a" strokeWidth="14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          <line x1="98" y1="4" x2="2" y2="96" stroke="#0a0a0a" strokeWidth="14" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          {/* Red fill strokes on top */}
+          <line x1="2" y1="4" x2="98" y2="96" stroke="#ef4444" strokeWidth="9" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          <line x1="98" y1="4" x2="2" y2="96" stroke="#ef4444" strokeWidth="9" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+        </svg>
       </div>
       <button
         onClick={onOpenWaitlist}
@@ -106,47 +122,22 @@ function DownloadGroup({
 function StoreButton({ kind }: { kind: "ios" | "android" }) {
   const isIos = kind === "ios";
   return (
-    <div className="relative">
-      <a
-        href="#"
-        onClick={(e) => e.preventDefault()}
-        aria-disabled="true"
-        className="group inline-flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 rounded-2xl border-2 border-foreground opacity-70 cursor-not-allowed pointer-events-none"
-      >
-        {isIos ? <Apple className="size-7" /> : <Play className="size-7 fill-current" />}
-        <div className="text-left leading-tight">
-          <div className="text-[10px] uppercase tracking-widest opacity-70">
-            {isIos ? "Download on the" : "Get it on"}
-          </div>
-          <div className="font-display font-bold text-lg">
-            {isIos ? "App Store" : "Google Play"}
-          </div>
+    <a
+      href="#"
+      onClick={(e) => e.preventDefault()}
+      aria-disabled="true"
+      className="inline-flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 rounded-2xl border-2 border-foreground opacity-70 cursor-not-allowed pointer-events-none"
+    >
+      {isIos ? <Apple className="size-7" /> : <Play className="size-7 fill-current" />}
+      <div className="text-left leading-tight">
+        <div className="text-[10px] uppercase tracking-widest opacity-70">
+          {isIos ? "Download on the" : "Get it on"}
         </div>
-      </a>
-      {/* Lighthearted "not yet available" cross */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <line
-          x1="4" y1="6" x2="96" y2="94"
-          stroke="hsl(var(--destructive, 0 84% 55%))"
-          strokeWidth="3"
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-          style={{ stroke: "#e11d48" }}
-        />
-        <line
-          x1="96" y1="6" x2="4" y2="94"
-          stroke="#e11d48"
-          strokeWidth="3"
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-        />
-      </svg>
-    </div>
+        <div className="font-display font-bold text-lg">
+          {isIos ? "App Store" : "Google Play"}
+        </div>
+      </div>
+    </a>
   );
 }
 
