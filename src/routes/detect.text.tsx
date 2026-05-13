@@ -4,6 +4,16 @@ import { DetectScreen } from "@/components/DetectScreen";
 
 export const Route = createFileRoute("/detect/text")({
   component: TextPage,
+  head: () => ({
+    meta: [
+      { title: "Analyze text for AI — AIsore" },
+      { name: "description", content: "Paste up to 1,000 words and AIsore will estimate how likely it is the text was written by an AI model." },
+      { property: "og:title", content: "Analyze text for AI — AIsore" },
+      { property: "og:description", content: "Paste text and AIsore will estimate how likely it was written by an AI." },
+      { property: "og:url", content: "https://aisoreapp.com/detect/text" },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/detect/text" }],
+  }),
 });
 
 const MAX = 1000;

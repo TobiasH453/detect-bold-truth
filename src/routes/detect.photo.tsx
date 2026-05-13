@@ -5,6 +5,16 @@ import { DetectScreen } from "@/components/DetectScreen";
 
 export const Route = createFileRoute("/detect/photo")({
   component: PhotoPage,
+  head: () => ({
+    meta: [
+      { title: "Analyze a photo for AI — AIsore" },
+      { name: "description", content: "Upload an image and AIsore will check whether it was AI-generated, returning a confidence score and the likely model." },
+      { property: "og:title", content: "Analyze a photo for AI — AIsore" },
+      { property: "og:description", content: "Upload an image and AIsore will check whether it was AI-generated." },
+      { property: "og:url", content: "https://aisoreapp.com/detect/photo" },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/detect/photo" }],
+  }),
 });
 
 function PhotoPage() {

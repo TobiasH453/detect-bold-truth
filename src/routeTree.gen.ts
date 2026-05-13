@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResultIdRouteImport } from './routes/result.$id'
@@ -17,6 +18,11 @@ import { Route as DetectTextRouteImport } from './routes/detect.text'
 import { Route as DetectPhotoRouteImport } from './routes/detect.photo'
 import { Route as DetectLinkRouteImport } from './routes/detect.link'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
@@ -56,6 +62,7 @@ const DetectLinkRoute = DetectLinkRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/history': typeof HistoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -65,6 +72,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/history': typeof HistoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -75,6 +83,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/history': typeof HistoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -86,6 +95,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/history'
+    | '/sitemap.xml'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/history'
+    | '/sitemap.xml'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/history'
+    | '/sitemap.xml'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -114,6 +126,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HistoryRoute: typeof HistoryRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   DetectLinkRoute: typeof DetectLinkRoute
   DetectPhotoRoute: typeof DetectPhotoRoute
   DetectTextRoute: typeof DetectTextRoute
@@ -123,6 +136,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/history': {
       id: '/history'
       path: '/history'
@@ -178,6 +198,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HistoryRoute: HistoryRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   DetectLinkRoute: DetectLinkRoute,
   DetectPhotoRoute: DetectPhotoRoute,
   DetectTextRoute: DetectTextRoute,

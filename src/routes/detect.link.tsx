@@ -10,6 +10,16 @@ const searchSchema = z.object({
 export const Route = createFileRoute("/detect/link")({
   component: LinkPage,
   validateSearch: searchSchema,
+  head: () => ({
+    meta: [
+      { title: "Analyze a link for AI — AIsore" },
+      { name: "description", content: "Paste a URL to a photo, video, or text page and AIsore will fetch and inspect the linked content for AI fingerprints." },
+      { property: "og:title", content: "Analyze a link for AI — AIsore" },
+      { property: "og:description", content: "Paste a URL and AIsore will inspect the linked content for AI fingerprints." },
+      { property: "og:url", content: "https://aisoreapp.com/detect/link" },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/detect/link" }],
+  }),
 });
 
 function LinkPage() {
