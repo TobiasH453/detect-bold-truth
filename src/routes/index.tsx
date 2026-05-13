@@ -25,17 +25,20 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const openWaitlist = () => setWaitlistOpen(true);
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
-      <Hero />
+      <Hero onOpenWaitlist={openWaitlist} />
       <HowItWorks />
-      <CTA />
+      <CTA onOpenWaitlist={openWaitlist} />
       <Footer />
+      <WaitlistDialog open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   );
 }
 
-function Hero() {
+function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
   return (
     <section className="relative overflow-hidden border-b-2 border-foreground">
       <div className="absolute inset-0 -z-10 opacity-[0.04] [background-image:radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:18px_18px]" />
@@ -52,10 +55,7 @@ function Hero() {
             Scan any photo, video, or text for AI fingerprints. Get an honest confidence score
             and the likely model in under 10 seconds.
           </p>
-          <div id="download" className="mt-10 flex flex-wrap gap-3">
-            <StoreButton kind="ios" />
-            <StoreButton kind="android" />
-          </div>
+          <DownloadGroup onOpenWaitlist={onOpenWaitlist} align="left" />
         </div>
 
         <PhoneMock />
@@ -77,24 +77,76 @@ function PhoneMock() {
   );
 }
 
+function DownloadGroup({
+  onOpenWaitlist,
+  align,
+}: {
+  onOpenWaitlist: () => void;
+  align: "left" | "center";
+}) {
+  return (
+    <div
+      id="download"
+      className={`mt-10 flex flex-col gap-4 ${align === "center" ? "items-center" : "items-start"}`}
+    >
+      <div className="flex flex-wrap gap-3 justify-center">
+        <StoreButton kind="ios" />
+        <StoreButton kind="android" />
+      </div>
+      <button
+        onClick={onOpenWaitlist}
+        className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-bold text-sm px-5 py-2.5 rounded-xl border-2 border-foreground shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+      >
+        Public beta soon · Join the waitlist
+      </button>
+    </div>
+  );
+}
+
 function StoreButton({ kind }: { kind: "ios" | "android" }) {
   const isIos = kind === "ios";
   return (
-    <a
-      href="#"
-      onClick={(e) => e.preventDefault()}
-      className="group inline-flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 rounded-2xl border-2 border-foreground hover:opacity-85 transition-opacity"
-    >
-      {isIos ? <Apple className="size-7" /> : <Play className="size-7 fill-current" />}
-      <div className="text-left leading-tight">
-        <div className="text-[10px] uppercase tracking-widest opacity-70">
-          {isIos ? "Download on the" : "Get it on"}
+    <div className="relative">
+      <a
+        href="#"
+        onClick={(e) => e.preventDefault()}
+        aria-disabled="true"
+        className="group inline-flex items-center gap-3 bg-foreground text-background pl-4 pr-5 py-3 rounded-2xl border-2 border-foreground opacity-70 cursor-not-allowed pointer-events-none"
+      >
+        {isIos ? <Apple className="size-7" /> : <Play className="size-7 fill-current" />}
+        <div className="text-left leading-tight">
+          <div className="text-[10px] uppercase tracking-widest opacity-70">
+            {isIos ? "Download on the" : "Get it on"}
+          </div>
+          <div className="font-display font-bold text-lg">
+            {isIos ? "App Store" : "Google Play"}
+          </div>
         </div>
-        <div className="font-display font-bold text-lg">
-          {isIos ? "App Store" : "Google Play"}
-        </div>
-      </div>
-    </a>
+      </a>
+      {/* Lighthearted "not yet available" cross */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <line
+          x1="4" y1="6" x2="96" y2="94"
+          stroke="hsl(var(--destructive, 0 84% 55%))"
+          strokeWidth="3"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          style={{ stroke: "#e11d48" }}
+        />
+        <line
+          x1="96" y1="6" x2="4" y2="94"
+          stroke="#e11d48"
+          strokeWidth="3"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+    </div>
   );
 }
 
