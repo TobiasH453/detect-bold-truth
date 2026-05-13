@@ -75,7 +75,7 @@ function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
             <span className="text-primary">if it's AI.</span>
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-md">
-            Scan or share any photo, video, or text for AI fingerprints. Get an honest confidence score
+            Upload or share to scan any photo, video, or text for AI fingerprints. Get an honest confidence score
             and the likely model in under 10 seconds.
           </p>
           <DownloadGroup onOpenWaitlist={onOpenWaitlist} align="left" />
