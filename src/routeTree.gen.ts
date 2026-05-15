@@ -17,6 +17,7 @@ import { Route as DetectVideoRouteImport } from './routes/detect.video'
 import { Route as DetectTextRouteImport } from './routes/detect.text'
 import { Route as DetectPhotoRouteImport } from './routes/detect.photo'
 import { Route as DetectLinkRouteImport } from './routes/detect.link'
+import { Route as AdminWaitlistRouteImport } from './routes/admin.waitlist'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -58,11 +59,17 @@ const DetectLinkRoute = DetectLinkRouteImport.update({
   path: '/detect/link',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminWaitlistRoute = AdminWaitlistRouteImport.update({
+  id: '/admin/waitlist',
+  path: '/admin/waitlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/history': typeof HistoryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/history': typeof HistoryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/history': typeof HistoryRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
   '/detect/text': typeof DetectTextRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/history'
     | '/sitemap.xml'
+    | '/admin/waitlist'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/history'
     | '/sitemap.xml'
+    | '/admin/waitlist'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/history'
     | '/sitemap.xml'
+    | '/admin/waitlist'
     | '/detect/link'
     | '/detect/photo'
     | '/detect/text'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HistoryRoute: typeof HistoryRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminWaitlistRoute: typeof AdminWaitlistRoute
   DetectLinkRoute: typeof DetectLinkRoute
   DetectPhotoRoute: typeof DetectPhotoRoute
   DetectTextRoute: typeof DetectTextRoute
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DetectLinkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/waitlist': {
+      id: '/admin/waitlist'
+      path: '/admin/waitlist'
+      fullPath: '/admin/waitlist'
+      preLoaderRoute: typeof AdminWaitlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HistoryRoute: HistoryRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminWaitlistRoute: AdminWaitlistRoute,
   DetectLinkRoute: DetectLinkRoute,
   DetectPhotoRoute: DetectPhotoRoute,
   DetectTextRoute: DetectTextRoute,
@@ -208,12 +229,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
