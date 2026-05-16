@@ -1,8 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
+import { Apple, Play, ShieldCheck, Zap, Eye, Mail, Copy, Check } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import appScreenshot from "@/assets/app-screenshot.png";
 import markerX from "@/assets/marker-x.png";
 
@@ -248,6 +255,20 @@ function CTA({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
 }
 
 function Footer() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const email = "tobiashalpern@gmail.com";
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* noop */
+    }
+  };
+
   return (
     <footer>
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
@@ -257,11 +278,53 @@ function Footer() {
           <span className="opacity-60">© {new Date().getFullYear()}</span>
         </div>
         <div className="flex items-center gap-6">
-          <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-foreground transition-colors">Privacy</a>
-          <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-foreground transition-colors">Terms</a>
-          <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-foreground transition-colors">Contact</a>
+          <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+          <Link to="/privacy" className="hover:text-foreground transition-colors">Terms</Link>
+          <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="hover:text-foreground transition-colors"
+          >
+            Contact/Support
+          </button>
         </div>
       </div>
+
+      <Dialog open={contactOpen} onOpenChange={setContactOpen}>
+        <DialogContent className="border-2 border-foreground rounded-2xl shadow-pop sm:max-w-md">
+          <DialogHeader>
+            <div className="size-11 rounded-xl bg-primary text-primary-foreground flex items-center justify-center border-2 border-foreground">
+              <Mail className="size-5" />
+            </div>
+            <DialogTitle className="font-display text-2xl mt-3">Contact & Support</DialogTitle>
+            <DialogDescription>
+              Questions, bug reports, partnership ideas? Reach out — we read everything.
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="mt-2 flex items-center gap-2 rounded-xl border-2 border-foreground bg-surface px-3 py-2">
+            <Mail className="size-4 shrink-0 text-muted-foreground" />
+            <span className="font-mono text-sm truncate flex-1">{email}</span>
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-md border border-foreground hover:bg-foreground hover:text-background transition-colors"
+            >
+              {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </div>
+
+          <a
+            href={`mailto:${email}`}
+            className="mt-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-display font-bold text-sm px-5 py-3 rounded-xl border-2 border-foreground shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+          >
+            <Mail className="size-4" />
+            Open email app
+          </a>
+        </DialogContent>
+      </Dialog>
     </footer>
   );
 }
+
