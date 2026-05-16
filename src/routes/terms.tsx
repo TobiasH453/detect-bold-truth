@@ -49,7 +49,7 @@ function TermsPage() {
           <section>
             <h2 className="font-display font-bold text-2xl mb-3">Results are informational</h2>
             <p className="text-muted-foreground">
-              Detection results are probabilistic and provided as-is, with no warranty of accuracy. You're
+              While detection results use the best available models, there is no warranty of accuracy. You're
               responsible for any decisions you make based on them.
             </p>
           </section>
