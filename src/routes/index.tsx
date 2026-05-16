@@ -279,7 +279,7 @@ function Footer() {
         </div>
         <div className="flex items-center gap-6">
           <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
-          <Link to="/privacy" className="hover:text-foreground transition-colors">Terms</Link>
+          <Link to="/terms" className="hover:text-foreground transition-colors">Terms</Link>
           <button
             type="button"
             onClick={() => setContactOpen(true)}
