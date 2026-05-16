@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HistoryRouteImport } from './routes/history'
@@ -20,6 +21,11 @@ import { Route as DetectPhotoRouteImport } from './routes/detect.photo'
 import { Route as DetectLinkRouteImport } from './routes/detect.link'
 import { Route as AdminWaitlistRouteImport } from './routes/admin.waitlist'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/history': typeof HistoryRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/history': typeof HistoryRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/history': typeof HistoryRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/terms': typeof TermsRoute
   '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
   '/detect/photo': typeof DetectPhotoRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/admin/waitlist'
     | '/detect/link'
     | '/detect/photo'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/admin/waitlist'
     | '/detect/link'
     | '/detect/photo'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/privacy'
     | '/sitemap.xml'
+    | '/terms'
     | '/admin/waitlist'
     | '/detect/link'
     | '/detect/photo'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   HistoryRoute: typeof HistoryRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TermsRoute: typeof TermsRoute
   AdminWaitlistRoute: typeof AdminWaitlistRoute
   DetectLinkRoute: typeof DetectLinkRoute
   DetectPhotoRoute: typeof DetectPhotoRoute
@@ -162,6 +175,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoryRoute: HistoryRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TermsRoute: TermsRoute,
   AdminWaitlistRoute: AdminWaitlistRoute,
   DetectLinkRoute: DetectLinkRoute,
   DetectPhotoRoute: DetectPhotoRoute,
