@@ -1,8 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
+import { Apple, Play, ShieldCheck, Zap, Eye, Mail, Copy, Check } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import appScreenshot from "@/assets/app-screenshot.png";
 import markerX from "@/assets/marker-x.png";
 
