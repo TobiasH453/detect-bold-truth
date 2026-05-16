@@ -76,13 +76,6 @@ function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display font-bold text-2xl mb-3">Children</h2>
-            <p className="text-muted-foreground">
-              AIsore is not directed to children under 13, and employs age gating. We do not knowingly collect data from them.
-            </p>
-          </section>
-
-          <section>
             <h2 className="font-display font-bold text-2xl mb-3">Changes</h2>
             <p className="text-muted-foreground">
               We may update this policy as the product evolves. Material changes will be reflected by updating the
