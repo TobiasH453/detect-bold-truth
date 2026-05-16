@@ -39,6 +39,13 @@ function PrivacyPage() {
 
         <div className="prose prose-neutral mt-10 space-y-8 text-[15px] leading-relaxed">
           <section>
+            <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
+              <li>We don't sell your data.</li>
+              <li>We don't store your data unless it's absolutely necessary to provide the service.</li>
+            </ul>
+          </section>
+
+          <section>
             <h2 className="font-display font-bold text-2xl mb-3">What we collect</h2>
             <p className="text-muted-foreground">
               We only process the data strictly required to run AIsore: the photo, video, text, or link you submit
