@@ -41,7 +41,7 @@ function PrivacyPage() {
           <section>
             <h2 className="font-display font-bold text-2xl mb-3">The short version</h2>
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-              <li>We don't sell your data. Ever.</li>
+              <li>We don't sell your data.</li>
               <li>We don't store your data unless it's absolutely necessary to provide the service.</li>
               <li>AIsore tells you what it thinks. We aren't liable for anything that doesn't come directly from us — including the content you scan or how you act on results.</li>
             </ul>
