@@ -297,9 +297,7 @@ function Footer() {
               <Mail className="size-5" />
             </div>
             <DialogTitle className="font-display text-2xl mt-3">Contact & Support</DialogTitle>
-            <DialogDescription>
-              Questions, bug reports, partnership ideas? Reach out — we read everything.
-            </DialogDescription>
+            <DialogDescription>​Here for all your needs.</DialogDescription>
           </DialogHeader>
 
           <div className="mt-2 flex items-center gap-2 rounded-xl border-2 border-foreground bg-surface px-3 py-2">
