@@ -104,17 +104,6 @@ function PrivacyPage() {
               date above.
             </p>
           </section>
-
-          <section>
-            <h2 className="font-display font-bold text-2xl mb-3">Contact</h2>
-            <p className="text-muted-foreground">
-              Questions or requests? Email{" "}
-              <a className="text-primary font-semibold underline" href="mailto:tobiashalpern@gmail.com">
-                tobiashalpern@gmail.com
-              </a>
-              .
-            </p>
-          </section>
         </div>
       </main>
     </div>
