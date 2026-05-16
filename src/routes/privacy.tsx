@@ -93,7 +93,7 @@ function PrivacyPage() {
           <section>
             <h2 className="font-display font-bold text-2xl mb-3">Children</h2>
             <p className="text-muted-foreground">
-              AIsore is not directed to children under 13. We do not knowingly collect data from them.
+              AIsore is not directed to children under 13, and employs age gating. We do not knowingly collect data from them.
             </p>
           </section>
 
