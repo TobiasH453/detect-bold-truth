@@ -39,6 +39,13 @@ function TermsPage() {
 
         <div className="mt-10 space-y-8 text-[15px] leading-relaxed">
           <section>
+            <p className="text-muted-foreground">
+              AIsore tells you what it thinks. Nothing is perfect. We aren't liable for anything that doesn't come
+              directly from us, including the content you scan or how you act on results.
+            </p>
+          </section>
+
+          <section>
             <h2 className="font-display font-bold text-2xl mb-3">Using AIsore</h2>
             <p className="text-muted-foreground">
               Use AIsore lawfully and don't try to break, abuse, or reverse-engineer it. Don't submit content you
