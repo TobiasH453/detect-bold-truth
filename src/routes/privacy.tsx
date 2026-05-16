@@ -43,7 +43,7 @@ function PrivacyPage() {
             <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
               <li>We don't sell your data.</li>
               <li>We don't store your data unless it's absolutely necessary to provide the service.</li>
-              <li>AIsore tells you what it thinks. Nothing is perfect. We aren't liable for anything that doesn't come directly from us, including the content you scan or how you act on results.</li>
+              
             </ul>
           </section>
 
