@@ -51,9 +51,10 @@ function PrivacyPage() {
             <h2 className="font-display font-bold text-2xl mb-3">What we collect</h2>
             <p className="text-muted-foreground">
               We only process the data strictly required to run AIsore: the photo, video, text, or link you submit
-              for analysis, and minimal technical metadata (e.g. an anonymous request identifier) needed to return
-              your result. Submissions are processed and discarded — we do not retain your uploads beyond what is
-              necessary to generate and deliver a detection result.
+              for analysis, and minimal technical metadata (ie. an anonymous request identifier) needed to return
+              your result. Submissions are processed and discarded, we do not retain uploads beyond what is
+              necessary to generate and deliver a detection result, and only keep detection results for 7 days to
+              provide you with a scan history.
             </p>
           </section>
 
