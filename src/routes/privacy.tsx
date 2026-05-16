@@ -68,21 +68,6 @@ function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="font-display font-bold text-2xl mb-3">Detection results & liability</h2>
-            <p className="text-muted-foreground">
-              AIsore provides probabilistic AI-detection results for informational purposes only. No detector is
-              perfect. You are solely responsible for how you interpret and act on any result. To the maximum extent
-              permitted by law, AIsore is not liable for any loss, damage, claim, or consequence arising from:
-            </p>
-            <ul className="list-disc pl-6 space-y-2 text-muted-foreground mt-3">
-              <li>the content you submit, encounter, or detect using the app;</li>
-              <li>actions you or others take based on a detection result;</li>
-              <li>third-party services, models, websites, or content accessed through the app;</li>
-              <li>anything not directly produced or published by AIsore itself.</li>
-            </ul>
-          </section>
-
-          <section>
             <h2 className="font-display font-bold text-2xl mb-3">Waitlist email</h2>
             <p className="text-muted-foreground">
               If you join the waitlist, we store your email solely to notify you about AIsore. You can ask us to
