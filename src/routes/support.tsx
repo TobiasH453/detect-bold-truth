@@ -34,6 +34,11 @@ import tiktokArrow from "@/assets/tiktok-arrow.jpg";
 import tiktokMore from "@/assets/tiktok-more.jpg";
 import xShareButton from "@/assets/x-share-button.jpg";
 import xMore from "@/assets/x-more.jpg";
+import iosArrow from "@/assets/ios-arrow.jpg";
+import iosMore from "@/assets/ios-more.jpg";
+import iosShareAisore from "@/assets/ios-share-aisore.jpg";
+import iosEdit from "@/assets/ios-edit.jpg";
+import iosFinal from "@/assets/ios-final.jpg";
 
 const PLATFORMS = [
   { value: "facebook", label: "Facebook" },
@@ -149,6 +154,7 @@ function SupportPage() {
                     <Step image={facebookMore} alt="Facebook More option" tall>
                       Click more.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "instagram" ? (
                   <div className="mt-5 space-y-6">
@@ -158,6 +164,7 @@ function SupportPage() {
                     <Step image={instagramMore} alt="Instagram Share to… option" tall>
                       Click the "Share to..." share option.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "youtube-shorts" ? (
                   <div className="mt-5 space-y-6">
@@ -173,6 +180,7 @@ function SupportPage() {
                     <Step image={ytShortsMore} alt="YouTube Shorts More option" tall>
                       Click more.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "tiktok" ? (
                   <div className="mt-5 space-y-6">
@@ -188,6 +196,7 @@ function SupportPage() {
                     <Step image={tiktokMore} alt="TikTok More option" tall>
                       Click more.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "x" ? (
                   <div className="mt-5 space-y-6">
@@ -197,6 +206,7 @@ function SupportPage() {
                     <Step image={xMore} alt="X / Twitter Share via… option" tall>
                       Click the "Share Via..." share option.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform ? (
                   <div className="mt-5 rounded-xl border-2 border-dashed border-foreground/30 bg-surface p-6 text-sm text-muted-foreground">
@@ -314,5 +324,27 @@ function Step({
         {children}
       </div>
     </div>
+  );
+}
+
+function IosSteps() {
+  return (
+    <>
+      <Step image={iosArrow} alt="iOS share sheet scroll arrow">
+        Step 4 instructions go here.
+      </Step>
+      <Step image={iosMore} alt="iOS share sheet More option">
+        Step 5 instructions go here.
+      </Step>
+      <Step image={iosShareAisore} alt="Enable AIsore in the iOS share sheet">
+        Step 6 instructions go here.
+      </Step>
+      <Step image={iosEdit} alt="iOS share sheet edit list" tall>
+        Step 7 instructions go here.
+      </Step>
+      <Step image={iosFinal} alt="AIsore available in the iOS share sheet">
+        Step 8 instructions go here.
+      </Step>
+    </>
   );
 }
