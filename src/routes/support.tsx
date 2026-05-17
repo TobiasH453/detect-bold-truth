@@ -26,6 +26,8 @@ import facebookShareButton from "@/assets/facebook-share-button.jpg";
 import facebookMore from "@/assets/facebook-more.jpg";
 import instagramShareButton from "@/assets/instagram-share-button.jpg";
 import instagramMore from "@/assets/instagram-more.jpg";
+import ytShortsShareButton from "@/assets/yt-shorts-share-button.jpg";
+import ytShortsMore from "@/assets/yt-shorts-more.jpg";
 
 const PLATFORMS = [
   { value: "facebook", label: "Facebook" },
@@ -155,6 +157,19 @@ function SupportPage() {
                     <img
                       src={instagramMore}
                       alt="Instagram Share to… option"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                  </div>
+                ) : platform === "youtube-shorts" ? (
+                  <div className="mt-5 space-y-4">
+                    <img
+                      src={ytShortsShareButton}
+                      alt="YouTube Shorts share button"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                    <img
+                      src={ytShortsMore}
+                      alt="YouTube Shorts More option"
                       className="w-full rounded-xl border-2 border-foreground"
                     />
                   </div>
