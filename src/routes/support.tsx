@@ -1,0 +1,136 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Mail, Copy, Check, ArrowLeft } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Logo, Wordmark } from "@/components/Logo";
+
+export const Route = createFileRoute("/support")({
+  component: SupportPage,
+  head: () => ({
+    meta: [
+      { title: "Support — AIsore" },
+      {
+        name: "description",
+        content:
+          "Get in touch with the AIsore team and learn how to configure the app on your device.",
+      },
+      { property: "og:title", content: "Support — AIsore" },
+      {
+        property: "og:description",
+        content: "Contact the AIsore team and follow setup instructions.",
+      },
+    ],
+    links: [{ rel: "canonical", href: "https://aisoreapp.com/support" }],
+  }),
+});
+
+function SupportPage() {
+  const [contactOpen, setContactOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const email = "tobiashalpern@gmail.com";
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* noop */
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      <header className="border-b-2 border-foreground">
+        <div className="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-2">
+            <Logo size={24} />
+            <Wordmark className="text-base" />
+          </Link>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ArrowLeft className="size-4" /> Home
+          </Link>
+        </div>
+      </header>
+
+      <main className="max-w-3xl mx-auto px-6 py-14">
+        <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">
+          Support
+        </span>
+        <h1 className="mt-3 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
+          Need a hand?
+        </h1>
+        <p className="mt-5 text-lg text-muted-foreground max-w-xl">
+          Reach out with bugs, questions, or suggestions — or follow the setup
+          guide below to configure AIsore on your device.
+        </p>
+
+        <div className="mt-8">
+          <button
+            type="button"
+            onClick={() => setContactOpen(true)}
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-bold text-sm px-5 py-3 rounded-xl border-2 border-foreground shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+          >
+            <Mail className="size-4" />
+            Contact us
+          </button>
+        </div>
+
+        <section className="mt-16">
+          <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
+            How to configure the app
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Step-by-step instructions and screenshots coming soon.
+          </p>
+
+          <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
+            Setup steps and images will go here.
+          </div>
+        </section>
+      </main>
+
+      <Dialog open={contactOpen} onOpenChange={setContactOpen}>
+        <DialogContent className="border-2 border-foreground rounded-2xl shadow-pop sm:max-w-md">
+          <DialogHeader>
+            <div className="size-11 rounded-xl bg-primary text-primary-foreground flex items-center justify-center border-2 border-foreground">
+              <Mail className="size-5" />
+            </div>
+            <DialogTitle className="font-display text-2xl mt-3">Contact & Support</DialogTitle>
+            <DialogDescription>Bugs, questions, suggestions</DialogDescription>
+          </DialogHeader>
+
+          <div className="mt-2 flex items-center gap-2 rounded-xl border-2 border-foreground bg-surface px-3 py-2">
+            <Mail className="size-4 shrink-0 text-muted-foreground" />
+            <span className="font-mono text-sm truncate flex-1">{email}</span>
+            <button
+              type="button"
+              onClick={copyEmail}
+              className="inline-flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-md border border-foreground hover:bg-foreground hover:text-background transition-colors"
+            >
+              {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </div>
+
+          <a
+            href={`mailto:${email}`}
+            className="mt-1 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground font-display font-bold text-sm px-5 py-3 rounded-xl border-2 border-foreground shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+          >
+            <Mail className="size-4" />
+            Open email app
+          </a>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}

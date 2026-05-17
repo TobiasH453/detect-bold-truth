@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as HistoryRouteImport } from './routes/history'
@@ -24,6 +25,11 @@ import { Route as AdminWaitlistRouteImport } from './routes/admin.waitlist'
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/history': typeof HistoryRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/history': typeof HistoryRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/history': typeof HistoryRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/support': typeof SupportRoute
   '/terms': typeof TermsRoute
   '/admin/waitlist': typeof AdminWaitlistRoute
   '/detect/link': typeof DetectLinkRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/privacy'
     | '/sitemap.xml'
+    | '/support'
     | '/terms'
     | '/admin/waitlist'
     | '/detect/link'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/privacy'
     | '/sitemap.xml'
+    | '/support'
     | '/terms'
     | '/admin/waitlist'
     | '/detect/link'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/history'
     | '/privacy'
     | '/sitemap.xml'
+    | '/support'
     | '/terms'
     | '/admin/waitlist'
     | '/detect/link'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   HistoryRoute: typeof HistoryRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SupportRoute: typeof SupportRoute
   TermsRoute: typeof TermsRoute
   AdminWaitlistRoute: typeof AdminWaitlistRoute
   DetectLinkRoute: typeof DetectLinkRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   HistoryRoute: HistoryRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SupportRoute: SupportRoute,
   TermsRoute: TermsRoute,
   AdminWaitlistRoute: AdminWaitlistRoute,
   DetectLinkRoute: DetectLinkRoute,
