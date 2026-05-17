@@ -27,6 +27,7 @@ import facebookMore from "@/assets/facebook-more.jpg";
 import instagramShareButton from "@/assets/instagram-share-button.jpg";
 import instagramMore from "@/assets/instagram-more.jpg";
 import ytShortsShareButton from "@/assets/yt-shorts-share-button.jpg";
+import ytShortsShareArrow from "@/assets/yt-shorts-share-arrow.jpg";
 import ytShortsMore from "@/assets/yt-shorts-more.jpg";
 
 const PLATFORMS = [
@@ -165,6 +166,11 @@ function SupportPage() {
                     <img
                       src={ytShortsShareButton}
                       alt="YouTube Shorts share button"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                    <img
+                      src={ytShortsShareArrow}
+                      alt="YouTube Shorts share sheet with arrow to reveal more apps"
                       className="w-full rounded-xl border-2 border-foreground"
                     />
                     <img
