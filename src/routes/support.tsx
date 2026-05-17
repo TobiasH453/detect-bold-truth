@@ -144,7 +144,7 @@ function SupportPage() {
                       image={facebookSharingArrow}
                       alt="Facebook share sheet with arrow pointing right to reveal more apps"
                     >
-                      Step 2 instructions go here.
+                      Scroll to the right until you see the "more" share option.
                     </Step>
                     <Step image={facebookMore} alt="Facebook More option" tall>
                       Step 3 instructions go here.
@@ -156,7 +156,7 @@ function SupportPage() {
                       Find an interesting video and click the share button.
                     </Step>
                     <Step image={instagramMore} alt="Instagram Share to… option" tall>
-                      Step 2 instructions go here.
+                      Scroll to the right until you see the "more" share option.
                     </Step>
                   </div>
                 ) : platform === "youtube-shorts" ? (
@@ -168,7 +168,7 @@ function SupportPage() {
                       image={ytShortsShareArrow}
                       alt="YouTube Shorts share sheet with arrow to reveal more apps"
                     >
-                      Step 2 instructions go here.
+                      Scroll to the right until you see the "more" share option.
                     </Step>
                     <Step image={ytShortsMore} alt="YouTube Shorts More option" tall>
                       Step 3 instructions go here.
@@ -183,7 +183,7 @@ function SupportPage() {
                       image={tiktokArrow}
                       alt="TikTok share sheet with arrow to reveal More"
                     >
-                      Step 2 instructions go here.
+                      Scroll to the right until you see the "more" share option.
                     </Step>
                     <Step image={tiktokMore} alt="TikTok More option" tall>
                       Step 3 instructions go here.
@@ -195,7 +195,7 @@ function SupportPage() {
                       Find an interesting video and click the share button.
                     </Step>
                     <Step image={xMore} alt="X / Twitter Share via… option" tall>
-                      Step 2 instructions go here.
+                      Scroll to the right until you see the "more" share option.
                     </Step>
                   </div>
                 ) : platform ? (
