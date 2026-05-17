@@ -337,7 +337,7 @@ function IosSteps() {
         Click more.
       </Step>
       <Step image={iosShareAisore} alt="Enable AIsore in the iOS share sheet">
-        Step 6 instructions go here.
+        Click "edit" in the top right, then look for AIsore. (it might be at the bottom)
       </Step>
       <Step image={iosEdit} alt="iOS share sheet edit list" tall>
         Step 7 instructions go here.
