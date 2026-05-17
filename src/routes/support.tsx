@@ -191,7 +191,7 @@ function SupportPage() {
                   </div>
                 ) : platform === "x" ? (
                   <div className="mt-5 space-y-6">
-                    <Step image={xShareButton} alt="X / Twitter share button" tall>
+                    <Step image={xShareButton} alt="X / Twitter share button">
                       Find an interesting video and click the share button.
                     </Step>
                     <Step image={xMore} alt="X / Twitter Share via… option" tall>
