@@ -195,7 +195,7 @@ function SupportPage() {
                       Find an interesting video and click the share button.
                     </Step>
                     <Step image={xMore} alt="X / Twitter Share via… option" tall>
-                      Scroll to the right until you see the "more" share option.
+                      Click the "Share Via..." share option.
                     </Step>
                   </div>
                 ) : platform ? (
