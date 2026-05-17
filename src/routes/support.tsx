@@ -130,8 +130,8 @@ function SupportPage() {
                     will go here.
                   </div>
                 ) : (
-                  <p className="mt-5 text-sm text-muted-foreground">
-                    Pick a platform above to see the setup steps.
+                  <p className="mt-5 text-sm font-bold text-foreground">
+                    What platform do you typically watch content on?
                   </p>
                 )}
               </div>
