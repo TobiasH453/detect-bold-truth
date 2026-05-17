@@ -138,13 +138,13 @@ function SupportPage() {
                 {platform === "facebook" ? (
                   <div className="mt-5 space-y-4">
                     <img
-                      src={facebookSharingArrow}
-                      alt="Facebook share sheet with arrow pointing right to reveal more apps"
+                      src={facebookShareButton}
+                      alt="Facebook share button"
                       className="w-full rounded-xl border-2 border-foreground"
                     />
                     <img
-                      src={facebookShareButton}
-                      alt="Facebook share button"
+                      src={facebookSharingArrow}
+                      alt="Facebook share sheet with arrow pointing right to reveal more apps"
                       className="w-full rounded-xl border-2 border-foreground"
                     />
                     <img
