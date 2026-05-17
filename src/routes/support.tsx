@@ -294,3 +294,42 @@ function SupportPage() {
     </div>
   );
 }
+
+function Step({
+  image,
+  alt,
+  tall,
+  children,
+}: {
+  image: string;
+  alt: string;
+  tall?: boolean;
+  children: React.ReactNode;
+}) {
+  if (tall) {
+    return (
+      <div className="flex gap-4 items-start">
+        <img
+          src={image}
+          alt={alt}
+          className="w-20 sm:w-24 shrink-0 rounded-xl border-2 border-foreground"
+        />
+        <div className="flex-1 text-sm text-muted-foreground leading-relaxed">
+          {children}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className="space-y-3">
+      <img
+        src={image}
+        alt={alt}
+        className="w-full rounded-xl border-2 border-foreground"
+      />
+      <div className="text-sm text-muted-foreground leading-relaxed">
+        {children}
+      </div>
+    </div>
+  );
+}
