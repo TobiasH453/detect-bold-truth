@@ -72,7 +72,7 @@ function SupportPage() {
             Setting up AIsore sharing (iOS)
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Step-by-step instructions and screenshots coming soon.
+            Get the most out of AIsore
           </p>
 
           <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
