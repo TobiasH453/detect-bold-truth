@@ -333,7 +333,7 @@ function IosSteps() {
       <Step image={iosArrow} alt="iOS share sheet scroll arrow">
         Scroll to the right until you see the iOS "more" share option.
       </Step>
-      <Step image={iosMore} alt="iOS share sheet More option">
+      <Step image={iosMore} alt="iOS share sheet More option" tall>
         Click more.
       </Step>
       <Step image={iosShareAisore} alt="Enable AIsore in the iOS share sheet">
