@@ -321,3 +321,25 @@ function Step({
     </div>
   );
 }
+
+function IosSteps() {
+  return (
+    <>
+      <Step image={iosArrow} alt="iOS share sheet scroll arrow">
+        Step 4 instructions go here.
+      </Step>
+      <Step image={iosMore} alt="iOS share sheet More option">
+        Step 5 instructions go here.
+      </Step>
+      <Step image={iosShareAisore} alt="Enable AIsore in the iOS share sheet">
+        Step 6 instructions go here.
+      </Step>
+      <Step image={iosEdit} alt="iOS share sheet edit list" tall>
+        Step 7 instructions go here.
+      </Step>
+      <Step image={iosFinal} alt="AIsore available in the iOS share sheet">
+        Step 8 instructions go here.
+      </Step>
+    </>
+  );
+}
