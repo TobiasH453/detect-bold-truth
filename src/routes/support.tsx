@@ -66,7 +66,21 @@ function SupportPage() {
         <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">
           Support
         </span>
-        <h1 className="mt-3 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
+
+        <section className="mt-3">
+          <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
+            Setting up AIsore sharing (iOS)
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Step-by-step instructions and screenshots coming soon.
+          </p>
+
+          <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
+            Setup steps and images will go here.
+          </div>
+        </section>
+
+        <h1 className="mt-16 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
           Need a hand?
         </h1>
 
@@ -80,19 +94,6 @@ function SupportPage() {
             Contact us
           </button>
         </div>
-
-        <section className="mt-16">
-          <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
-            Setting up AIsore sharing (iOS)
-          </h2>
-          <p className="mt-3 text-muted-foreground">
-            Step-by-step instructions and screenshots coming soon.
-          </p>
-
-          <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
-            Setup steps and images will go here.
-          </div>
-        </section>
       </main>
 
       <Dialog open={contactOpen} onOpenChange={setContactOpen}>
