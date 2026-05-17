@@ -83,7 +83,7 @@ function SupportPage() {
 
         <section className="mt-16">
           <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
-            How to configure the app
+            Setting up AIsore sharing (iOS)
           </h2>
           <p className="mt-3 text-muted-foreground">
             Step-by-step instructions and screenshots coming soon.
