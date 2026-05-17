@@ -57,6 +57,7 @@ function SupportPage() {
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [instructionsOpen, setInstructionsOpen] = useState(false);
+  const [generalOpen, setGeneralOpen] = useState(false);
   const [platform, setPlatform] = useState<string | undefined>(undefined);
   const email = "support@aisoreapp.com";
 
@@ -155,6 +156,20 @@ function SupportPage() {
                     What platform do you typically watch content on?
                   </p>
                 )}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
+
+          <Collapsible open={generalOpen} onOpenChange={setGeneralOpen} className="mt-4">
+            <CollapsibleTrigger className="group w-full flex items-center justify-between gap-4 rounded-2xl border-2 border-foreground bg-card px-5 py-4 text-left shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+              <h2 className="font-display font-bold text-2xl md:text-3xl tracking-tight">
+                General use
+              </h2>
+              <ChevronDown className="size-5 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="mt-4 rounded-2xl border-2 border-foreground bg-card p-5">
+                <p className="text-sm font-bold text-foreground">Coming soon</p>
               </div>
             </CollapsibleContent>
           </Collapsible>
