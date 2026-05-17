@@ -147,7 +147,7 @@ function SupportPage() {
                       Scroll to the right until you see the "more" share option.
                     </Step>
                     <Step image={facebookMore} alt="Facebook More option" tall>
-                      Step 3 instructions go here.
+                      Click more.
                     </Step>
                   </div>
                 ) : platform === "instagram" ? (
@@ -171,7 +171,7 @@ function SupportPage() {
                       Scroll to the right until you see the "more" share option.
                     </Step>
                     <Step image={ytShortsMore} alt="YouTube Shorts More option" tall>
-                      Step 3 instructions go here.
+                      Click more.
                     </Step>
                   </div>
                 ) : platform === "tiktok" ? (
@@ -186,7 +186,7 @@ function SupportPage() {
                       Scroll to the right until you see the "more" share option.
                     </Step>
                     <Step image={tiktokMore} alt="TikTok More option" tall>
-                      Step 3 instructions go here.
+                      Click more.
                     </Step>
                   </div>
                 ) : platform === "x" ? (
