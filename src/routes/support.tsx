@@ -136,84 +136,67 @@ function SupportPage() {
                 </Select>
 
                 {platform === "facebook" ? (
-                  <div className="mt-5 space-y-4">
-                    <img
-                      src={facebookShareButton}
-                      alt="Facebook share button"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={facebookSharingArrow}
+                  <div className="mt-5 space-y-6">
+                    <Step image={facebookShareButton} alt="Facebook share button" tall>
+                      Step 1 instructions go here.
+                    </Step>
+                    <Step
+                      image={facebookSharingArrow}
                       alt="Facebook share sheet with arrow pointing right to reveal more apps"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={facebookMore}
-                      alt="Facebook More option"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
+                    >
+                      Step 2 instructions go here.
+                    </Step>
+                    <Step image={facebookMore} alt="Facebook More option" tall>
+                      Step 3 instructions go here.
+                    </Step>
                   </div>
                 ) : platform === "instagram" ? (
-                  <div className="mt-5 space-y-4">
-                    <img
-                      src={instagramShareButton}
-                      alt="Instagram share button"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={instagramMore}
-                      alt="Instagram Share to… option"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
+                  <div className="mt-5 space-y-6">
+                    <Step image={instagramShareButton} alt="Instagram share button" tall>
+                      Step 1 instructions go here.
+                    </Step>
+                    <Step image={instagramMore} alt="Instagram Share to… option" tall>
+                      Step 2 instructions go here.
+                    </Step>
                   </div>
                 ) : platform === "youtube-shorts" ? (
-                  <div className="mt-5 space-y-4">
-                    <img
-                      src={ytShortsShareButton}
-                      alt="YouTube Shorts share button"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={ytShortsShareArrow}
+                  <div className="mt-5 space-y-6">
+                    <Step image={ytShortsShareButton} alt="YouTube Shorts share button" tall>
+                      Step 1 instructions go here.
+                    </Step>
+                    <Step
+                      image={ytShortsShareArrow}
                       alt="YouTube Shorts share sheet with arrow to reveal more apps"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={ytShortsMore}
-                      alt="YouTube Shorts More option"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
+                    >
+                      Step 2 instructions go here.
+                    </Step>
+                    <Step image={ytShortsMore} alt="YouTube Shorts More option" tall>
+                      Step 3 instructions go here.
+                    </Step>
                   </div>
                 ) : platform === "tiktok" ? (
-                  <div className="mt-5 space-y-4">
-                    <img
-                      src={tiktokShareButton}
-                      alt="TikTok share button"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={tiktokArrow}
+                  <div className="mt-5 space-y-6">
+                    <Step image={tiktokShareButton} alt="TikTok share button" tall>
+                      Step 1 instructions go here.
+                    </Step>
+                    <Step
+                      image={tiktokArrow}
                       alt="TikTok share sheet with arrow to reveal More"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={tiktokMore}
-                      alt="TikTok More option"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
+                    >
+                      Step 2 instructions go here.
+                    </Step>
+                    <Step image={tiktokMore} alt="TikTok More option" tall>
+                      Step 3 instructions go here.
+                    </Step>
                   </div>
                 ) : platform === "x" ? (
-                  <div className="mt-5 space-y-4">
-                    <img
-                      src={xShareButton}
-                      alt="X / Twitter share button"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
-                    <img
-                      src={xMore}
-                      alt="X / Twitter Share via… option"
-                      className="w-full rounded-xl border-2 border-foreground"
-                    />
+                  <div className="mt-5 space-y-6">
+                    <Step image={xShareButton} alt="X / Twitter share button" tall>
+                      Step 1 instructions go here.
+                    </Step>
+                    <Step image={xMore} alt="X / Twitter Share via… option" tall>
+                      Step 2 instructions go here.
+                    </Step>
                   </div>
                 ) : platform ? (
                   <div className="mt-5 rounded-xl border-2 border-dashed border-foreground/30 bg-surface p-6 text-sm text-muted-foreground">
