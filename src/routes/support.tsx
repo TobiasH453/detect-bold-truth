@@ -103,7 +103,7 @@ function SupportPage() {
               </h2>
               <ChevronDown className="size-5 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
             </CollapsibleTrigger>
-            <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+            <CollapsibleContent>
               <div className="mt-4 rounded-2xl border-2 border-foreground bg-card p-5">
                 <label className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">
                   Choose a platform
