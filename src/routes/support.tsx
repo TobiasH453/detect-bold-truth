@@ -163,7 +163,7 @@ function SupportPage() {
           <Collapsible open={generalOpen} onOpenChange={setGeneralOpen} className="mt-4">
             <CollapsibleTrigger className="group w-full flex items-center justify-between gap-4 rounded-2xl border-2 border-foreground bg-card px-5 py-4 text-left shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
               <h2 className="font-display font-bold text-2xl md:text-3xl tracking-tight">
-                General use
+                Using AIsore
               </h2>
               <ChevronDown className="size-5 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
             </CollapsibleTrigger>
