@@ -53,6 +53,8 @@ export const Route = createFileRoute("/support")({
 function SupportPage() {
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [instructionsOpen, setInstructionsOpen] = useState(false);
+  const [platform, setPlatform] = useState<string | undefined>(undefined);
   const email = "support@aisoreapp.com";
 
   const copyEmail = async () => {
