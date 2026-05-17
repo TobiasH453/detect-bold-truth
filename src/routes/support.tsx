@@ -34,6 +34,11 @@ import tiktokArrow from "@/assets/tiktok-arrow.jpg";
 import tiktokMore from "@/assets/tiktok-more.jpg";
 import xShareButton from "@/assets/x-share-button.jpg";
 import xMore from "@/assets/x-more.jpg";
+import iosArrow from "@/assets/ios-arrow.jpg";
+import iosMore from "@/assets/ios-more.jpg";
+import iosShareAisore from "@/assets/ios-share-aisore.jpg";
+import iosEdit from "@/assets/ios-edit.jpg";
+import iosFinal from "@/assets/ios-final.jpg";
 
 const PLATFORMS = [
   { value: "facebook", label: "Facebook" },
