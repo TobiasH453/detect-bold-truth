@@ -24,6 +24,8 @@ import { Logo, Wordmark } from "@/components/Logo";
 import facebookSharingArrow from "@/assets/facebook-sharing-arrow.jpg";
 import facebookShareButton from "@/assets/facebook-share-button.jpg";
 import facebookMore from "@/assets/facebook-more.jpg";
+import instagramShareButton from "@/assets/instagram-share-button.jpg";
+import instagramMore from "@/assets/instagram-more.jpg";
 
 const PLATFORMS = [
   { value: "facebook", label: "Facebook" },
@@ -140,6 +142,19 @@ function SupportPage() {
                     <img
                       src={facebookMore}
                       alt="Facebook More option"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                  </div>
+                ) : platform === "instagram" ? (
+                  <div className="mt-5 space-y-4">
+                    <img
+                      src={instagramShareButton}
+                      alt="Instagram share button"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                    <img
+                      src={instagramMore}
+                      alt="Instagram Share to… option"
                       className="w-full rounded-xl border-2 border-foreground"
                     />
                   </div>
