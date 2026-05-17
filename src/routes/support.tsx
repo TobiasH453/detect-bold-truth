@@ -21,6 +21,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Logo, Wordmark } from "@/components/Logo";
+import facebookSharingArrow from "@/assets/facebook-sharing-arrow.jpg";
+import facebookShareButton from "@/assets/facebook-share-button.jpg";
+import facebookMore from "@/assets/facebook-more.jpg";
 
 const PLATFORMS = [
   { value: "facebook", label: "Facebook" },
@@ -121,7 +124,25 @@ function SupportPage() {
                   </SelectContent>
                 </Select>
 
-                {platform ? (
+                {platform === "facebook" ? (
+                  <div className="mt-5 space-y-4">
+                    <img
+                      src={facebookSharingArrow}
+                      alt="Facebook share sheet with arrow pointing right to reveal more apps"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                    <img
+                      src={facebookShareButton}
+                      alt="Facebook share button"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                    <img
+                      src={facebookMore}
+                      alt="Facebook More option"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                  </div>
+                ) : platform ? (
                   <div className="mt-5 rounded-xl border-2 border-dashed border-foreground/30 bg-surface p-6 text-sm text-muted-foreground">
                     Instructions for{" "}
                     <span className="font-semibold text-foreground">
