@@ -138,7 +138,7 @@ function SupportPage() {
                 {platform === "facebook" ? (
                   <div className="mt-5 space-y-6">
                     <Step image={facebookShareButton} alt="Facebook share button" tall>
-                      Step 1 instructions go here.
+                      Find an interesting video and click the share button.
                     </Step>
                     <Step
                       image={facebookSharingArrow}
@@ -153,7 +153,7 @@ function SupportPage() {
                 ) : platform === "instagram" ? (
                   <div className="mt-5 space-y-6">
                     <Step image={instagramShareButton} alt="Instagram share button" tall>
-                      Step 1 instructions go here.
+                      Find an interesting video and click the share button.
                     </Step>
                     <Step image={instagramMore} alt="Instagram Share to… option" tall>
                       Step 2 instructions go here.
@@ -162,7 +162,7 @@ function SupportPage() {
                 ) : platform === "youtube-shorts" ? (
                   <div className="mt-5 space-y-6">
                     <Step image={ytShortsShareButton} alt="YouTube Shorts share button" tall>
-                      Step 1 instructions go here.
+                      Find an interesting video and click the share button.
                     </Step>
                     <Step
                       image={ytShortsShareArrow}
@@ -177,7 +177,7 @@ function SupportPage() {
                 ) : platform === "tiktok" ? (
                   <div className="mt-5 space-y-6">
                     <Step image={tiktokShareButton} alt="TikTok share button" tall>
-                      Step 1 instructions go here.
+                      Find an interesting video and click the share button.
                     </Step>
                     <Step
                       image={tiktokArrow}
@@ -192,7 +192,7 @@ function SupportPage() {
                 ) : platform === "x" ? (
                   <div className="mt-5 space-y-6">
                     <Step image={xShareButton} alt="X / Twitter share button" tall>
-                      Step 1 instructions go here.
+                      Find an interesting video and click the share button.
                     </Step>
                     <Step image={xMore} alt="X / Twitter Share via… option" tall>
                       Step 2 instructions go here.
