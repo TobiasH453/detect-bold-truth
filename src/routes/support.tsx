@@ -77,10 +77,6 @@ function SupportPage() {
           <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
             Setting up AIsore sharing (iOS)
           </h2>
-          <p className="mt-3 text-muted-foreground">
-            Get the most out of AIsore
-          </p>
-
           <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
             Setup steps and images will go here.
           </div>
