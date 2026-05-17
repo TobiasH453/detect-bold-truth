@@ -285,7 +285,7 @@ function Footer() {
             onClick={() => setContactOpen(true)}
             className="hover:text-foreground transition-colors"
           >
-            Contact
+            Contact/Support
           </button>
         </div>
       </div>
@@ -296,7 +296,7 @@ function Footer() {
             <div className="size-11 rounded-xl bg-primary text-primary-foreground flex items-center justify-center border-2 border-foreground">
               <Mail className="size-5" />
             </div>
-            <DialogTitle className="font-display text-2xl mt-3">Contact</DialogTitle>
+            <DialogTitle className="font-display text-2xl mt-3">Contact & Support</DialogTitle>
             <DialogDescription>Bugs, questions, suggestions</DialogDescription>
           </DialogHeader>
 
