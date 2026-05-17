@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Copy, Check, ArrowLeft } from "lucide-react";
+import { Mail, Copy, Check, ArrowLeft, ChevronDown } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -8,7 +8,27 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Logo, Wordmark } from "@/components/Logo";
+
+const PLATFORMS = [
+  { value: "facebook", label: "Facebook" },
+  { value: "instagram", label: "Instagram" },
+  { value: "youtube-shorts", label: "YouTube Shorts" },
+  { value: "tiktok", label: "TikTok" },
+  { value: "x", label: "X / Twitter" },
+] as const;
 
 export const Route = createFileRoute("/support")({
   component: SupportPage,
