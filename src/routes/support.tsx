@@ -32,6 +32,8 @@ import ytShortsMore from "@/assets/yt-shorts-more.jpg";
 import tiktokShareButton from "@/assets/tiktok-share-button.jpg";
 import tiktokArrow from "@/assets/tiktok-arrow.jpg";
 import tiktokMore from "@/assets/tiktok-more.jpg";
+import xShareButton from "@/assets/x-share-button.jpg";
+import xMore from "@/assets/x-more.jpg";
 
 const PLATFORMS = [
   { value: "facebook", label: "Facebook" },
@@ -197,6 +199,19 @@ function SupportPage() {
                     <img
                       src={tiktokMore}
                       alt="TikTok More option"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                  </div>
+                ) : platform === "x" ? (
+                  <div className="mt-5 space-y-4">
+                    <img
+                      src={xShareButton}
+                      alt="X / Twitter share button"
+                      className="w-full rounded-xl border-2 border-foreground"
+                    />
+                    <img
+                      src={xMore}
+                      alt="X / Twitter Share via… option"
                       className="w-full rounded-xl border-2 border-foreground"
                     />
                   </div>
