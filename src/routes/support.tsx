@@ -154,6 +154,7 @@ function SupportPage() {
                     <Step image={facebookMore} alt="Facebook More option" tall>
                       Click more.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "instagram" ? (
                   <div className="mt-5 space-y-6">
@@ -163,6 +164,7 @@ function SupportPage() {
                     <Step image={instagramMore} alt="Instagram Share to… option" tall>
                       Click the "Share to..." share option.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "youtube-shorts" ? (
                   <div className="mt-5 space-y-6">
@@ -178,6 +180,7 @@ function SupportPage() {
                     <Step image={ytShortsMore} alt="YouTube Shorts More option" tall>
                       Click more.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "tiktok" ? (
                   <div className="mt-5 space-y-6">
@@ -193,6 +196,7 @@ function SupportPage() {
                     <Step image={tiktokMore} alt="TikTok More option" tall>
                       Click more.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform === "x" ? (
                   <div className="mt-5 space-y-6">
@@ -202,6 +206,7 @@ function SupportPage() {
                     <Step image={xMore} alt="X / Twitter Share via… option" tall>
                       Click the "Share Via..." share option.
                     </Step>
+                    <IosSteps />
                   </div>
                 ) : platform ? (
                   <div className="mt-5 rounded-xl border-2 border-dashed border-foreground/30 bg-surface p-6 text-sm text-muted-foreground">
