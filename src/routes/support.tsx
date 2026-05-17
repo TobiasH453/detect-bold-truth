@@ -66,8 +66,11 @@ function SupportPage() {
         <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">
           Support
         </span>
+        <h1 className="mt-3 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
+          Need a hand?
+        </h1>
 
-        <section className="mt-3">
+        <section className="mt-12">
           <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
             Setting up AIsore sharing (iOS)
           </h2>
@@ -80,11 +83,7 @@ function SupportPage() {
           </div>
         </section>
 
-        <h1 className="mt-16 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
-          Need a hand?
-        </h1>
-
-        <div className="mt-8">
+        <div className="mt-16">
           <button
             type="button"
             onClick={() => setContactOpen(true)}
