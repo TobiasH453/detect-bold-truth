@@ -69,10 +69,6 @@ function SupportPage() {
         <h1 className="mt-3 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
           Need a hand?
         </h1>
-        <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-          Reach out with bugs, questions, or suggestions — or follow the setup
-          guide below to configure AIsore on your device.
-        </p>
 
         <div className="mt-8">
           <button
