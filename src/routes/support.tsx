@@ -343,7 +343,7 @@ function IosSteps() {
         Click + on AIsore to add it to favorites. We recommend dragging it to one of the top 4 slots.
       </Step>
       <Step image={iosFinal} alt="AIsore available in the iOS share sheet">
-        Step 8 instructions go here.
+        You should now see AIsore as a top option when sharing outside of your favorite apps. Click it with a video loaded to start detecting.
       </Step>
     </>
   );
