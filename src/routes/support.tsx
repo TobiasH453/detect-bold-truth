@@ -156,7 +156,7 @@ function SupportPage() {
                       Find an interesting video and click the share button.
                     </Step>
                     <Step image={instagramMore} alt="Instagram Share to… option" tall>
-                      Scroll to the right until you see the "more" share option.
+                      Click the "Share to..." share option.
                     </Step>
                   </div>
                 ) : platform === "youtube-shorts" ? (
