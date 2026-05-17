@@ -33,7 +33,7 @@ export const Route = createFileRoute("/support")({
 function SupportPage() {
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
-  const email = "tobiashalpern@gmail.com";
+  const email = "support@aisoreapp.com";
 
   const copyEmail = async () => {
     try {
@@ -69,6 +69,9 @@ function SupportPage() {
         <h1 className="mt-3 font-display font-bold text-balance text-[clamp(40px,6vw,64px)] leading-[1] tracking-tight">
           Need a hand?
         </h1>
+        <p className="mt-5 text-lg text-muted-foreground max-w-xl">
+          Learn how to set up and use the app. Contact support if you need more help.
+        </p>
 
         <section className="mt-12">
           <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
