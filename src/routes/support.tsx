@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Copy, Check, ArrowLeft } from "lucide-react";
+import { Mail, Copy, Check, ArrowLeft, ChevronDown } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -8,7 +8,27 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Logo, Wordmark } from "@/components/Logo";
+
+const PLATFORMS = [
+  { value: "facebook", label: "Facebook" },
+  { value: "instagram", label: "Instagram" },
+  { value: "youtube-shorts", label: "YouTube Shorts" },
+  { value: "tiktok", label: "TikTok" },
+  { value: "x", label: "X / Twitter" },
+] as const;
 
 export const Route = createFileRoute("/support")({
   component: SupportPage,
@@ -33,6 +53,8 @@ export const Route = createFileRoute("/support")({
 function SupportPage() {
   const [contactOpen, setContactOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [instructionsOpen, setInstructionsOpen] = useState(false);
+  const [platform, setPlatform] = useState<string | undefined>(undefined);
   const email = "support@aisoreapp.com";
 
   const copyEmail = async () => {
@@ -74,12 +96,47 @@ function SupportPage() {
         </p>
 
         <section className="mt-12">
-          <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
-            Setting up AIsore sharing (iOS)
-          </h2>
-          <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
-            Setup steps and images will go here.
-          </div>
+          <Collapsible open={instructionsOpen} onOpenChange={setInstructionsOpen}>
+            <CollapsibleTrigger className="group w-full flex items-center justify-between gap-4 rounded-2xl border-2 border-foreground bg-card px-5 py-4 text-left shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+              <h2 className="font-display font-bold text-2xl md:text-3xl tracking-tight">
+                Setting up AIsore sharing (iOS)
+              </h2>
+              <ChevronDown className="size-5 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <div className="mt-4 rounded-2xl border-2 border-foreground bg-card p-5">
+                <label className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">
+                  Choose a platform
+                </label>
+                <Select value={platform} onValueChange={setPlatform}>
+                  <SelectTrigger className="mt-2 border-2 border-foreground rounded-xl h-11">
+                    <SelectValue placeholder="Select a platform" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {PLATFORMS.map((p) => (
+                      <SelectItem key={p.value} value={p.value}>
+                        {p.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
+                {platform ? (
+                  <div className="mt-5 rounded-xl border-2 border-dashed border-foreground/30 bg-surface p-6 text-sm text-muted-foreground">
+                    Instructions for{" "}
+                    <span className="font-semibold text-foreground">
+                      {PLATFORMS.find((p) => p.value === platform)?.label}
+                    </span>{" "}
+                    will go here.
+                  </div>
+                ) : (
+                  <p className="mt-5 text-sm text-muted-foreground">
+                    Pick a platform above to see the setup steps.
+                  </p>
+                )}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
         </section>
 
         <div className="mt-16">
