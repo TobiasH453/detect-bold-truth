@@ -96,12 +96,47 @@ function SupportPage() {
         </p>
 
         <section className="mt-12">
-          <h2 className="font-display font-bold text-3xl md:text-4xl tracking-tight">
-            Setting up AIsore sharing (iOS)
-          </h2>
-          <div className="mt-8 rounded-2xl border-2 border-dashed border-foreground/30 bg-surface p-8 text-center text-muted-foreground">
-            Setup steps and images will go here.
-          </div>
+          <Collapsible open={instructionsOpen} onOpenChange={setInstructionsOpen}>
+            <CollapsibleTrigger className="group w-full flex items-center justify-between gap-4 rounded-2xl border-2 border-foreground bg-card px-5 py-4 text-left shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
+              <h2 className="font-display font-bold text-2xl md:text-3xl tracking-tight">
+                Setting up AIsore sharing (iOS)
+              </h2>
+              <ChevronDown className="size-5 shrink-0 transition-transform duration-200 group-data-[state=open]:rotate-180" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
+              <div className="mt-4 rounded-2xl border-2 border-foreground bg-card p-5">
+                <label className="text-[10px] uppercase tracking-[0.2em] font-semibold text-muted-foreground">
+                  Choose a platform
+                </label>
+                <Select value={platform} onValueChange={setPlatform}>
+                  <SelectTrigger className="mt-2 border-2 border-foreground rounded-xl h-11">
+                    <SelectValue placeholder="Select a platform" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {PLATFORMS.map((p) => (
+                      <SelectItem key={p.value} value={p.value}>
+                        {p.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
+                {platform ? (
+                  <div className="mt-5 rounded-xl border-2 border-dashed border-foreground/30 bg-surface p-6 text-sm text-muted-foreground">
+                    Instructions for{" "}
+                    <span className="font-semibold text-foreground">
+                      {PLATFORMS.find((p) => p.value === platform)?.label}
+                    </span>{" "}
+                    will go here.
+                  </div>
+                ) : (
+                  <p className="mt-5 text-sm text-muted-foreground">
+                    Pick a platform above to see the setup steps.
+                  </p>
+                )}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
         </section>
 
         <div className="mt-16">
