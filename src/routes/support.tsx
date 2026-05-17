@@ -70,7 +70,7 @@ function SupportPage() {
           Need a hand?
         </h1>
         <p className="mt-5 text-lg text-muted-foreground max-w-xl">
-          Get the most out of AIsore. Contact support if you need more help.
+          Get the most out of AIsore. Contact us if you need more help.
         </p>
 
         <section className="mt-12">
