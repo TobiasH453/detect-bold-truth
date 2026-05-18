@@ -81,7 +81,7 @@ function Hero() {
             Upload or share to scan any photo, video, or text for AI fingerprints. Get an honest confidence score
             and the likely model in under 10 seconds.
           </p>
-          <DownloadGroup onOpenWaitlist={onOpenWaitlist} align="left" />
+          <DownloadGroup align="left" />
         </div>
 
         <PhoneMock />
