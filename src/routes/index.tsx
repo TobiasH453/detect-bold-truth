@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
-import appScreenshot from "@/assets/app-screenshot.png";
+import { useTheme } from "@/hooks/use-theme";
+import appScreenshotLight from "@/assets/app-screenshot-light.png";
+import appScreenshotDark from "@/assets/app-screenshot-dark.png";
 import markerX from "@/assets/marker-x.png";
 
 export const Route = createFileRoute("/")({
