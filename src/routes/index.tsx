@@ -109,13 +109,7 @@ function PhoneMock() {
   );
 }
 
-function DownloadGroup({
-  onOpenWaitlist,
-  align,
-}: {
-  onOpenWaitlist: () => void;
-  align: "left" | "center";
-}) {
+function DownloadGroup({ align }: { align: "left" | "center" }) {
   return (
     <div
       id="download"
@@ -137,12 +131,14 @@ function DownloadGroup({
         />
 
       </div>
-      <button
-        onClick={onOpenWaitlist}
+      <a
+        href="https://testflight.apple.com/join/2q1waBfy"
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-bold text-sm px-5 py-2.5 rounded-xl border-2 border-foreground shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
       >
-        Public beta soon · Join the waitlist
-      </button>
+        Join the iOS beta
+      </a>
     </div>
   );
 }
