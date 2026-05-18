@@ -1,9 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { WaitlistDialog } from "@/components/WaitlistDialog";
 import { useTheme } from "@/hooks/use-theme";
 import appScreenshotLight from "@/assets/app-screenshot-light.png";
 import appScreenshotDark from "@/assets/app-screenshot-dark.png";
@@ -51,23 +49,20 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
-  const openWaitlist = () => setWaitlistOpen(true);
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <div className="fixed top-4 left-4 z-50">
         <ThemeToggle />
       </div>
-      <Hero onOpenWaitlist={openWaitlist} />
+      <Hero />
       <HowItWorks />
-      <CTA onOpenWaitlist={openWaitlist} />
+      <CTA />
       <Footer />
-      <WaitlistDialog open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   );
 }
 
-function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
+function Hero() {
   return (
     <section className="relative overflow-hidden border-b-2 border-foreground">
       <div className="absolute inset-0 -z-10 opacity-[0.04] [background-image:radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:18px_18px]" />
@@ -84,7 +79,7 @@ function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
             Upload or share to scan any photo, video, or text for AI fingerprints. Get an honest confidence score
             and the likely model in under 10 seconds.
           </p>
-          <DownloadGroup onOpenWaitlist={onOpenWaitlist} align="left" />
+          <DownloadGroup align="left" />
         </div>
 
         <PhoneMock />
@@ -112,13 +107,7 @@ function PhoneMock() {
   );
 }
 
-function DownloadGroup({
-  onOpenWaitlist,
-  align,
-}: {
-  onOpenWaitlist: () => void;
-  align: "left" | "center";
-}) {
+function DownloadGroup({ align }: { align: "left" | "center" }) {
   return (
     <div
       id="download"
@@ -140,12 +129,14 @@ function DownloadGroup({
         />
 
       </div>
-      <button
-        onClick={onOpenWaitlist}
+      <a
+        href="https://testflight.apple.com/join/2q1waBfy"
+        target="_blank"
+        rel="noopener noreferrer"
         className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-display font-bold text-sm px-5 py-2.5 rounded-xl border-2 border-foreground shadow-pop-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
       >
-        Public beta soon · Join the waitlist
-      </button>
+        Join the iOS beta
+      </a>
     </div>
   );
 }
@@ -241,7 +232,7 @@ function HowItWorks() {
   );
 }
 
-function CTA({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
+function CTA() {
   return (
     <section className="border-b border-border">
       <div className="max-w-6xl mx-auto px-6 py-24 text-center">
@@ -252,7 +243,7 @@ function CTA({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
           AIsore lives in your pocket. Scan anything, anywhere.
         </p>
         <div className="mt-9 flex justify-center">
-          <DownloadGroup onOpenWaitlist={onOpenWaitlist} align="center" />
+          <DownloadGroup align="center" />
         </div>
       </div>
     </section>
