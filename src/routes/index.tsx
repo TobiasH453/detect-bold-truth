@@ -2,8 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Apple, Play, ShieldCheck, Zap, Eye } from "lucide-react";
 import { Logo, Wordmark } from "@/components/Logo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { WaitlistDialog } from "@/components/WaitlistDialog";
-import appScreenshot from "@/assets/app-screenshot.png";
+import { useTheme } from "@/hooks/use-theme";
+import appScreenshotLight from "@/assets/app-screenshot-light.png";
+import appScreenshotDark from "@/assets/app-screenshot-dark.png";
 import markerX from "@/assets/marker-x.png";
 
 export const Route = createFileRoute("/")({
@@ -52,6 +55,9 @@ function Landing() {
   const openWaitlist = () => setWaitlistOpen(true);
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
+      <div className="fixed top-4 left-4 z-50">
+        <ThemeToggle />
+      </div>
       <Hero onOpenWaitlist={openWaitlist} />
       <HowItWorks />
       <CTA onOpenWaitlist={openWaitlist} />
@@ -88,11 +94,13 @@ function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
 }
 
 function PhoneMock() {
+  const theme = useTheme();
+  const src = theme === "dark" ? appScreenshotDark : appScreenshotLight;
   return (
     <div className="relative mx-auto w-full max-w-[340px]">
       <div className="absolute -inset-6 bg-primary/15 rounded-[60px] blur-2xl -z-10" />
       <img
-        src={appScreenshot}
+        src={src}
         alt="AIsore app screenshot"
         className="relative w-full h-auto rounded-[36px] border-2 border-foreground shadow-pop"
       />
