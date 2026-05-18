@@ -91,11 +91,13 @@ function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
 }
 
 function PhoneMock() {
+  const theme = useTheme();
+  const src = theme === "dark" ? appScreenshotDark : appScreenshotLight;
   return (
     <div className="relative mx-auto w-full max-w-[340px]">
       <div className="absolute -inset-6 bg-primary/15 rounded-[60px] blur-2xl -z-10" />
       <img
-        src={appScreenshot}
+        src={src}
         alt="AIsore app screenshot"
         className="relative w-full h-auto rounded-[36px] border-2 border-foreground shadow-pop"
       />
