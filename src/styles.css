@@ -143,12 +143,6 @@
 }
 
 @layer base {
-  /* placeholder so the closing brace below stays balanced */
-  .__noop {}
-  .dark .border-foreground {
-    border-color: #1a1a1a;
-  }
-
   .pulse-eye {
     animation: pulseEye 1.6s ease-in-out infinite;
   }
