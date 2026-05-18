@@ -51,23 +51,20 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
-  const [waitlistOpen, setWaitlistOpen] = useState(false);
-  const openWaitlist = () => setWaitlistOpen(true);
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <div className="fixed top-4 left-4 z-50">
         <ThemeToggle />
       </div>
-      <Hero onOpenWaitlist={openWaitlist} />
+      <Hero />
       <HowItWorks />
-      <CTA onOpenWaitlist={openWaitlist} />
+      <CTA />
       <Footer />
-      <WaitlistDialog open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   );
 }
 
-function Hero({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
+function Hero() {
   return (
     <section className="relative overflow-hidden border-b-2 border-foreground">
       <div className="absolute inset-0 -z-10 opacity-[0.04] [background-image:radial-gradient(var(--color-foreground)_1px,transparent_1px)] [background-size:18px_18px]" />
