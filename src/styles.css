@@ -127,6 +127,15 @@
   .shadow-pop-sm {
     box-shadow: 2px 2px 0 0 #000;
   }
+  .dark .shadow-pop {
+    box-shadow: 4px 4px 0 0 #1a1a1a;
+  }
+  .dark .shadow-pop-sm {
+    box-shadow: 2px 2px 0 0 #1a1a1a;
+  }
+  .dark .border-foreground {
+    border-color: #1a1a1a;
+  }
 
   .pulse-eye {
     animation: pulseEye 1.6s ease-in-out infinite;
