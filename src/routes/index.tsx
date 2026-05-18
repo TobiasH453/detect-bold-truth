@@ -234,7 +234,7 @@ function HowItWorks() {
   );
 }
 
-function CTA({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
+function CTA() {
   return (
     <section className="border-b border-border">
       <div className="max-w-6xl mx-auto px-6 py-24 text-center">
@@ -245,7 +245,7 @@ function CTA({ onOpenWaitlist }: { onOpenWaitlist: () => void }) {
           AIsore lives in your pocket. Scan anything, anywhere.
         </p>
         <div className="mt-9 flex justify-center">
-          <DownloadGroup onOpenWaitlist={onOpenWaitlist} align="center" />
+          <DownloadGroup align="center" />
         </div>
       </div>
     </section>
