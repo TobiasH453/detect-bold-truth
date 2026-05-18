@@ -102,6 +102,10 @@ function PhoneMock() {
       <img
         src={src}
         alt="AIsore app screenshot"
+        width={885}
+        height={1920}
+        fetchPriority="high"
+        decoding="async"
         className="relative w-full h-auto rounded-[36px] border-2 border-foreground shadow-pop"
       />
     </div>
